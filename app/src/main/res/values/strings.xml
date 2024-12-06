@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VocabularyApp</string>
+    <string name="relative_position">%d / 10</string>
+    <string name="skip">SKIP</string>
+</resources>
