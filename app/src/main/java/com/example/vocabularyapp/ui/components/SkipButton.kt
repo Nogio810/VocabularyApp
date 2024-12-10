@@ -17,12 +17,12 @@ fun SkipButton() {
         shape = CircleShape,
         border = BorderStroke(
             width = 2.dp,
-            color = colorScheme.surfaceVariant
+            color = colorScheme.outline
         )
     ) {
         Text(
             stringResource(R.string.skip),
-            color = colorScheme.surfaceVariant
+            color = colorScheme.outline
         )
     }
 }
