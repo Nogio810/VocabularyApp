@@ -1,0 +1,113 @@
+Index: app/src/main/java/com/example/vocabularyapp/ui/components/ErrorQuizOptionButton.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vocabularyapp/ui/components/ErrorQuizOptionButton.kt b/app/src/main/java/com/example/vocabularyapp/ui/components/ErrorQuizOptionButton.kt
+new file mode 100644
+--- /dev/null	(date 1733814977745)
++++ b/app/src/main/java/com/example/vocabularyapp/ui/components/ErrorQuizOptionButton.kt	(date 1733814977745)
+@@ -0,0 +1,50 @@
++package com.example.vocabularyapp.ui.components
++
++import androidx.compose.foundation.background
++import androidx.compose.foundation.border
++import androidx.compose.foundation.layout.Row
++import androidx.compose.foundation.layout.fillMaxWidth
++import androidx.compose.foundation.layout.padding
++import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.material.icons.Icons
++import androidx.compose.material.icons.filled.Circle
++import androidx.compose.material.icons.filled.Close
++import androidx.compose.material3.Icon
++import androidx.compose.material3.MaterialTheme.colorScheme
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.draw.clip
++import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.text.style.TextAlign
++import androidx.compose.ui.unit.dp
++
++@Composable
++fun ErrorQuizOptionButton(
++    indent: Int = indent,
++    word: String = word
++) {
++    Row(
++        modifier = Modifier
++            .clip(RoundedCornerShape(8.dp))  // 形状を角丸に
++            .border(
++                2.dp,
++                color = colorScheme.error,
++                RoundedCornerShape(8.dp)
++            )
++            .padding(16.dp)
++            .fillMaxWidth()
++            .background(colorScheme.surfaceVariant)
++    ) {
++        Icon(
++            Icons.Filled.Close,
++            contentDescription = null,
++            tint = colorScheme.error
++        )
++        Text(
++            text = word,
++            textAlign = TextAlign.Start,
++            color = colorScheme.error
++        )
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vocabularyapp.ui.screens\r\n\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.Spacer\r\nimport androidx.compose.foundation.layout.WindowInsets\r\nimport androidx.compose.foundation.layout.systemBars\r\nimport androidx.compose.foundation.layout.windowInsetsBottomHeight\r\nimport androidx.compose.foundation.layout.windowInsetsTopHeight\r\nimport androidx.compose.foundation.lazy.LazyColumn\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\n\r\n@Composable\r\nfun QuizScreen() {\r\n    Box {\r\n        Column {\r\n            Spacer(\r\n                Modifier.windowInsetsBottomHeight(\r\n                    WindowInsets.systemBars\r\n                )\r\n            )\r\n            LazyColumn {\r\n                item {\r\n                    Row {\r\n\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt b/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt
+--- a/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt	(revision c864e28d5e2a0ebc63c3f0457bd6b73b344ebe45)
++++ b/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt	(date 1733816106305)
+@@ -11,6 +11,13 @@
+ import androidx.compose.foundation.lazy.LazyColumn
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.Modifier
++import com.example.vocabularyapp.ui.components.CloseButton
++import com.example.vocabularyapp.ui.components.LinearDeterminateIndicator
++import com.example.vocabularyapp.ui.components.MoreHorizonButton
++import com.example.vocabularyapp.ui.components.QuizCard
++import com.example.vocabularyapp.ui.components.QuizOptionButton
++import com.example.vocabularyapp.ui.components.RelativePosition
++import com.example.vocabularyapp.ui.components.SkipButton
+ 
+ @Composable
+ fun QuizScreen() {
+@@ -24,7 +31,26 @@
+             LazyColumn {
+                 item {
+                     Row {
+-
++                        CloseButton()
++                        LinearDeterminateIndicator()
++                        MoreHorizonButton()
++                    }
++                }
++                item {
++                    RelativePosition()
++                }
++                item {
++                    QuizCard()
++                }
++                item {
++                    SkipButton()
++                }
++                item {
++                    Column {
++                        QuizOptionButton()
++                        QuizOptionButton()
++                        QuizOptionButton()
++                        QuizOptionButton()
+                     }
+                 }
+             }
