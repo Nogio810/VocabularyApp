@@ -11,6 +11,13 @@ import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.vocabularyapp.ui.components.CloseButton
+import com.example.vocabularyapp.ui.components.LinearDeterminateIndicator
+import com.example.vocabularyapp.ui.components.MoreHorizonButton
+import com.example.vocabularyapp.ui.components.QuizCard
+import com.example.vocabularyapp.ui.components.QuizOptionButton
+import com.example.vocabularyapp.ui.components.RelativePosition
+import com.example.vocabularyapp.ui.components.SkipButton
 
 @Composable
 fun QuizScreen() {
@@ -24,7 +31,26 @@ fun QuizScreen() {
             LazyColumn {
                 item {
                     Row {
-
+                        CloseButton()
+                        LinearDeterminateIndicator()
+                        MoreHorizonButton()
+                    }
+                }
+                item {
+                    RelativePosition()
+                }
+                item {
+                    QuizCard()
+                }
+                item {
+                    SkipButton()
+                }
+                item {
+                    Column {
+                        QuizOptionButton()
+                        QuizOptionButton()
+                        QuizOptionButton()
+                        QuizOptionButton()
                     }
                 }
             }
