@@ -13,7 +13,7 @@ fun RelativePosition(
 ){
     Text(
         text = stringResource(R.string.relative_position, indent),
-        color = colorScheme.surfaceVariant,
+        color = colorScheme.outline,
         textAlign = TextAlign.Center
     )
 }
