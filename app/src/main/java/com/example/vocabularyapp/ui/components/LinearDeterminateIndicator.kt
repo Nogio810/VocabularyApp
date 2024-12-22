@@ -2,7 +2,6 @@ package com.example.vocabularyapp.ui.components
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
@@ -13,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
 @Composable
-fun LinearDeterminateIndicator() {
+fun LinearDeterminateIndicator(modifier: Modifier) {
     val progress = remember { Animatable(1f) }
     val isAnimating by remember { mutableStateOf(false) }
 
@@ -25,7 +24,7 @@ fun LinearDeterminateIndicator() {
 
     LinearProgressIndicator(
         progress = { progress.value },
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
         color = colorScheme.primary,
         trackColor = colorScheme.primaryContainer
     )
