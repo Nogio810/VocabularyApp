@@ -42,7 +42,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation ("androidx.compose.ui:1.7.5")
+    implementation ("androidx.compose.ui:ui:1.7.6")
     implementation ("androidx.compose.material:material-icons-extended:1.7.5")
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

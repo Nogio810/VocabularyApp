@@ -7,7 +7,7 @@ import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun QuizCard(
-    englishWord: String = englishWord
+    englishWord: String
 ){
     Text(
         text = englishWord,

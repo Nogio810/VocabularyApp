@@ -11,6 +11,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.compose.VocabularyAppTheme
 import com.example.vocabularyapp.model.Choice
 import com.example.vocabularyapp.ui.components.CloseButton
 import com.example.vocabularyapp.ui.components.CorrectQuizOptionButton
@@ -40,24 +42,38 @@ fun QuizScreen(choices: List<Choice>) {
                     }
                 }
                 item {
-                    RelativePosition()
+                    RelativePosition(indent = 1)
                 }
                 item {
-                    QuizCard()
+                    QuizCard(englishWord = "This")
                 }
                 item {
                     SkipButton()
                 }
                 itemsIndexed(choices) { index, choice ->
                     if(choice.isCorrect){
-                        CorrectQuizOptionButton(index + 1, choice.questionText)
+                        CorrectQuizOptionButton(indent = index + 1, word = choice.questionText)
                     }else if (choice.isFalse){
-                        ErrorQuizOptionButton(index + 1, choice.questionText)
+                        ErrorQuizOptionButton(indent = index + 1, word = choice.questionText)
                     }else{
-                        QuizOptionButton(index + 1, choice.questionText)
+                        QuizOptionButton(indent = index + 1, word = choice.questionText)
                     }
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun QuizScreenPreview(){
+    val choices = listOf(
+        Choice("これ", false, false),
+        Choice("あれ", false, false),
+        Choice("それ", false, false),
+        Choice("どれ", false, false)
+    )
+    VocabularyAppTheme {
+        QuizScreen(choices = choices)
     }
 }

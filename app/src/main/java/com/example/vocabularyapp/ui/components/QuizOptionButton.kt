@@ -15,8 +15,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun QuizOptionButton(
-    indent: Int = indent,
-    word: String = word
+    indent: Int,
+    word: String
 ) {
     Row(
         modifier = Modifier

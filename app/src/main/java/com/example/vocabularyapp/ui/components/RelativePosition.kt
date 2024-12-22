@@ -9,7 +9,7 @@ import com.example.vocabularyapp.R
 
 @Composable
 fun RelativePosition(
-    indent: Int = indent
+    indent: Int
 ){
     Text(
         text = stringResource(R.string.relative_position, indent),

@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun CorrectQuizOptionButton(
-    indent: Int = indent,
-    word: String = word
+    indent: Int,
+    word: String
 ) {
     val correct = Color(0xff00cc33)
     Row(
