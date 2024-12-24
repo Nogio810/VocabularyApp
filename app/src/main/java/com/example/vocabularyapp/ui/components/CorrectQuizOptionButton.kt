@@ -26,6 +26,7 @@ fun CorrectQuizOptionButton(
     val correct = Color(0xff00cc33)
     Row(
         modifier = Modifier
+            .padding(16.dp)
             .clip(RoundedCornerShape(8.dp))  // 形状を角丸に
             .border(
                 2.dp,

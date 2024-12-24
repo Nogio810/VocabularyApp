@@ -1,6 +1,5 @@
 package com.example.vocabularyapp.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,7 +28,13 @@ import com.example.vocabularyapp.ui.components.RelativePosition
 import com.example.vocabularyapp.ui.components.SkipButton
 
 @Composable
-fun QuizScreen(choices: List<Choice>) {
+fun QuizScreen() {
+    val choices = listOf(
+        Choice("これ", isCorrect = false, isFalse = false),
+        Choice("あれ", isCorrect = false, isFalse = false),
+        Choice("それ", isCorrect = false, isFalse = false),
+        Choice("どれ", isCorrect = false, isFalse = false)
+    )
     Box(modifier = Modifier.fillMaxSize()) {
         Column {
             Spacer(
@@ -50,6 +55,13 @@ fun QuizScreen(choices: List<Choice>) {
                     }
                 }
                 item {
+                    Spacer(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                    )
+                }
+                item {
                     RelativePosition(
                         indent = 1
                     )
@@ -57,6 +69,13 @@ fun QuizScreen(choices: List<Choice>) {
                 item {
                     QuizCard(
                         englishWord = "This"
+                    )
+                }
+                item {
+                    Spacer(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
                     )
                 }
                 item {
@@ -85,27 +104,15 @@ fun QuizScreen(choices: List<Choice>) {
 @Preview(showBackground = true)
 @Composable
 fun QuizScreenPreview(){
-    val choices = listOf(
-        Choice("これ", false, false),
-        Choice("あれ", false, false),
-        Choice("それ", false, false),
-        Choice("どれ", false, false)
-    )
     VocabularyAppTheme(darkTheme = false) {
-        QuizScreen(choices = choices)
+        QuizScreen()
     }
 }
 
 @Preview
 @Composable
 fun DarkQuizScreenPreview(){
-    val choices = listOf(
-        Choice("これ", false, false),
-        Choice("あれ", false, false),
-        Choice("それ", false, false),
-        Choice("どれ", false, false)
-    )
     VocabularyAppTheme(darkTheme = true) {
-        QuizScreen(choices = choices)
+        QuizScreen()
     }
 }

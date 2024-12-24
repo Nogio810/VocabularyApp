@@ -20,6 +20,12 @@ fun QuizOptionButton(
 ) {
     Row(
         modifier = Modifier
+            .padding(
+                start = 16.dp,
+                end = 16.dp,
+                top = 8.dp,
+                bottom = 8.dp
+            )
             .clip(RoundedCornerShape(8.dp))  // 形状を角丸に
             .border(
                 2.dp,
