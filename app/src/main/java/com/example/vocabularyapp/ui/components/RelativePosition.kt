@@ -12,9 +12,10 @@ import com.example.vocabularyapp.R
 @Composable
 fun RelativePosition(
     indent: Int,
+    size: Int
 ){
     Text(
-        text = stringResource(R.string.relative_position, indent),
+        text = stringResource(R.string.relative_position, indent, size),
         color = colorScheme.outline,
         textAlign = TextAlign.Center,
         modifier = Modifier.fillMaxWidth()

@@ -12,15 +12,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.compose.VocabularyAppTheme
+import com.example.vocabularyapp.model.Choice
+import com.example.vocabularyapp.model.Quiz
 import com.example.vocabularyapp.ui.screens.QuizScreen
 
 class MainActivity : ComponentActivity() {
+    val quizList = listOf(
+        Quiz(
+            question = "What does 'This' mean?",
+            choices = listOf(
+                Choice("これ", isCorrect = false, isFalse = false),
+                Choice("あれ", isCorrect = false, isFalse = false),
+                Choice("それ", isCorrect = false, isFalse = false),
+                Choice("どれ", isCorrect = false, isFalse = false)
+            )
+        )
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             VocabularyAppTheme {
-                QuizScreen()
+                QuizScreen(quizList)
             }
         }
     }

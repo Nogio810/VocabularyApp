@@ -198,7 +198,7 @@
     <string name="not_selected">Not selected</string>
     <string name="range_end">"Range end"</string>
     <string name="range_start">"Range start"</string>
-    <string name="relative_position">%d / 10</string>
+    <string name="relative_position">%d / %d</string>
     <string name="selected">Selected</string>
     <string name="skip">SKIP</string>
     <string name="state_empty">Empty</string>

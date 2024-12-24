@@ -21,39 +21,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\takuj\\AndroidStudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\fonts_certs.xml",
+                    "source": "C:\\Users\\takuj\\StudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "2,6,11",
+                        "startLines": "1,2,3",
                         "startColumns": "4,4,4",
-                        "startOffsets": "57,263,1993",
-                        "endLines": "5,10,15",
-                        "endColumns": "12,19,19",
-                        "endOffsets": "257,1987,3582"
+                        "startOffsets": "16,67,121",
+                        "endColumns": "50,53,37",
+                        "endOffsets": "62,116,154"
                     },
                     "to": {
-                        "startLines": "2,6,11",
+                        "startLines": "121,200,202",
                         "startColumns": "4,4,4",
-                        "startOffsets": "150,352,2077",
-                        "endLines": "5,10,15",
-                        "endColumns": "12,19,19",
-                        "endOffsets": "347,2072,3662"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\takuj\\AndroidStudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "7,2,3,4,5,6,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "293,57,105,153,201,247,336",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "330,99,147,195,241,287,373"
-                    },
-                    "to": {
-                        "startLines": "19,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "3887,4192,4239,4286,4333,4378,4423",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "3924,4234,4281,4328,4373,4418,4460"
+                        "startOffsets": "9918,15523,15623",
+                        "endColumns": "50,53,37",
+                        "endOffsets": "9964,15572,15656"
                     }
                 },
                 {
@@ -112,6 +93,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\takuj\\StudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\fonts_certs.xml",
+                    "from": {
+                        "startLines": "2,6,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "57,263,1993",
+                        "endLines": "5,10,15",
+                        "endColumns": "12,19,19",
+                        "endOffsets": "257,1987,3582"
+                    },
+                    "to": {
+                        "startLines": "2,6,11",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "150,352,2077",
+                        "endLines": "5,10,15",
+                        "endColumns": "12,19,19",
+                        "endOffsets": "347,2072,3662"
+                    }
+                },
+                {
                     "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\3c150828ee231014b84c83a5d66b58eb\\transformed\\startup-runtime-1.1.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -163,23 +163,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\takuj\\AndroidStudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "59",
-                        "endColumns": "90",
-                        "endOffsets": "145"
-                    },
-                    "to": {
-                        "startLines": "233",
-                        "startColumns": "4",
-                        "startOffsets": "17320",
-                        "endColumns": "89",
-                        "endOffsets": "17405"
-                    }
-                },
-                {
                     "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\5f271161d6fe65361490d325f4df8e04\\transformed\\ui-graphics-release\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -194,23 +177,6 @@
                         "startOffsets": "8241",
                         "endColumns": "65",
                         "endOffsets": "8302"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\takuj\\AndroidStudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1,2,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "17,69,124",
-                        "endColumns": "50,53,37",
-                        "endOffsets": "63,118,157"
-                    },
-                    "to": {
-                        "startLines": "121,200,202",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "9918,15523,15623",
-                        "endColumns": "50,53,37",
-                        "endOffsets": "9964,15572,15656"
                     }
                 },
                 {
@@ -247,6 +213,40 @@
                         "startOffsets": "8604,9548",
                         "endColumns": "41,59",
                         "endOffsets": "8641,9603"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\takuj\\StudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endColumns": "90",
+                        "endOffsets": "142"
+                    },
+                    "to": {
+                        "startLines": "233",
+                        "startColumns": "4",
+                        "startOffsets": "17320",
+                        "endColumns": "89",
+                        "endOffsets": "17405"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\takuj\\StudioProjects\\VocabularyApp\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "7,2,3,4,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "286,55,102,149,196,241,328",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "323,97,144,191,236,281,365"
+                    },
+                    "to": {
+                        "startLines": "19,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "3887,4192,4239,4286,4333,4378,4423",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "3924,4234,4281,4328,4373,4418,4460"
                     }
                 },
                 {

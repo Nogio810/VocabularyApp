@@ -42,10 +42,10 @@ com.example.vocabularyapp-ui-text-release-40 C:\Users\takuj\.gradle\caches\8.9\t
 com.example.vocabularyapp-ui-tooling-release-41 C:\Users\takuj\.gradle\caches\8.9\transforms\d52ff3c505ec3aa575e7c6f31268dab6\transformed\ui-tooling-release\res
 com.example.vocabularyapp-runtime-release-42 C:\Users\takuj\.gradle\caches\8.9\transforms\f0cb5ab7adfbd3fe751dcc917d2f7197\transformed\runtime-release\res
 com.example.vocabularyapp-ui-tooling-preview-release-43 C:\Users\takuj\.gradle\caches\8.9\transforms\ff2fbf156b0928468502f8791d446a4d\transformed\ui-tooling-preview-release\res
-com.example.vocabularyapp-pngs-44 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\build\generated\res\pngs\debug
-com.example.vocabularyapp-resValues-45 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\build\generated\res\resValues\debug
-com.example.vocabularyapp-packageDebugResources-46 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.vocabularyapp-packageDebugResources-47 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.vocabularyapp-debug-48 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.vocabularyapp-debug-49 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\debug\res
-com.example.vocabularyapp-main-50 C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\res
+com.example.vocabularyapp-pngs-44 C:\Users\takuj\StudioProjects\VocabularyApp\app\build\generated\res\pngs\debug
+com.example.vocabularyapp-resValues-45 C:\Users\takuj\StudioProjects\VocabularyApp\app\build\generated\res\resValues\debug
+com.example.vocabularyapp-packageDebugResources-46 C:\Users\takuj\StudioProjects\VocabularyApp\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.vocabularyapp-packageDebugResources-47 C:\Users\takuj\StudioProjects\VocabularyApp\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.vocabularyapp-debug-48 C:\Users\takuj\StudioProjects\VocabularyApp\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.vocabularyapp-debug-49 C:\Users\takuj\StudioProjects\VocabularyApp\app\src\debug\res
+com.example.vocabularyapp-main-50 C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\res

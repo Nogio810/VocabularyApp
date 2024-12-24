@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [androidx.compose.material3:material3-android:1.2.1] C:\Users\takuj\.gradle\caches\8.9\transforms\b1125694cd095bb0235d964185d4238d\transformed\material3-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-android:1.6.6] C:\Users\takuj\.gradle\caches\8.9\transforms\bf35c0574b8679b2a1c20b7bf0e9d87e\transformed\material-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-ripple-android:1.6.6] C:\Users\takuj\.gradle\caches\8.9\transforms\a75ff43fd38d3fccbe8d511078078ed3\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
@@ -53,18 +53,18 @@ MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\takuj\.gradle\caches\8.9\t
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\takuj\.gradle\caches\8.9\transforms\1f0bf80a3cbcc0ac45ccfebb2a44f215\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\takuj\.gradle\caches\8.9\transforms\3f16785d73c13bf10dd9e29afbaa1568\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 	package
-		INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:5:5-26:19
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:5:5-26:19
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:5:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\takuj\.gradle\caches\8.9\transforms\d52ff3c505ec3aa575e7c6f31268dab6\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\takuj\.gradle\caches\8.9\transforms\d52ff3c505ec3aa575e7c6f31268dab6\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.7.6] C:\Users\takuj\.gradle\caches\8.9\transforms\58d5ed536239949b2cf94ed63ceb23ec\transformed\ui-test-manifest-1.7.6\AndroidManifest.xml:22:5-26:19
@@ -82,51 +82,51 @@ MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\takuj\.g
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\takuj\.gradle\caches\8.9\transforms\3c150828ee231014b84c83a5d66b58eb\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\takuj\.gradle\caches\8.9\transforms\3c150828ee231014b84c83a5d66b58eb\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 	android:extractNativeLibs
-		INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\takuj\.gradle\caches\8.9\transforms\ae52f0645bb4bd3dad8486b0ac93071f\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:10:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:8:9-54
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:8:9-54
 	android:roundIcon
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:11:9-54
 	tools:targetApi
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:14:9-29
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:14:9-29
 	android:icon
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:9:9-43
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:13:9-51
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:13:9-51
 	android:dataExtractionRules
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:7:9-65
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:7:9-65
 activity#com.example.vocabularyapp.MainActivity
-ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:15:9-25:20
+ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:15:9-25:20
 	android:label
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:18:13-45
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:18:13-45
 	android:exported
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:17:13-36
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:17:13-36
 	android:theme
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:19:13-55
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:19:13-55
 	android:name
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:16:13-41
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:16:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml:23:27-74
 uses-sdk
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 MERGED from [androidx.compose.material3:material3-android:1.2.1] C:\Users\takuj\.gradle\caches\8.9\transforms\b1125694cd095bb0235d964185d4238d\transformed\material3-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material3:material3-android:1.2.1] C:\Users\takuj\.gradle\caches\8.9\transforms\b1125694cd095bb0235d964185d4238d\transformed\material3-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material:material-android:1.6.6] C:\Users\takuj\.gradle\caches\8.9\transforms\bf35c0574b8679b2a1c20b7bf0e9d87e\transformed\material-release\AndroidManifest.xml:5:5-44
@@ -224,9 +224,9 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\takuj\.gradle\cache
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\takuj\.gradle\caches\8.9\transforms\3f16785d73c13bf10dd9e29afbaa1568\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\takuj\.gradle\caches\8.9\transforms\3f16785d73c13bf10dd9e29afbaa1568\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\takuj\AndroidStudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\AndroidManifest.xml
 activity#androidx.compose.ui.tooling.PreviewActivity
 ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\takuj\.gradle\caches\8.9\transforms\d52ff3c505ec3aa575e7c6f31268dab6\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
 	android:exported
