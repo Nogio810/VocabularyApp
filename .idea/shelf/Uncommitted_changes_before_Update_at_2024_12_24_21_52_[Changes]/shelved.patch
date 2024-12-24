@@ -1,0 +1,231 @@
+Index: app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vocabularyapp.ui.components\r\n\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.material3.MaterialTheme.colorScheme\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.text.style.TextAlign\r\n\r\n@Composable\r\nfun QuizCard(\r\n    englishWord: String\r\n){\r\n    Text(\r\n        text = englishWord,\r\n        color = colorScheme.onSurface,\r\n        textAlign = TextAlign.Center,\r\n        modifier = Modifier.fillMaxWidth()\r\n    )\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt b/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt
+--- a/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt	(revision 47f6b9b559610136fbefe7282e5a029b90097602)
++++ b/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt	(date 1734959541685)
+@@ -1,11 +1,13 @@
+ package com.example.vocabularyapp.ui.components
+ 
+ import androidx.compose.foundation.layout.fillMaxWidth
++import androidx.compose.foundation.layout.padding
+ import androidx.compose.material3.MaterialTheme.colorScheme
+ import androidx.compose.material3.Text
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.text.style.TextAlign
++import androidx.compose.ui.unit.dp
+ 
+ @Composable
+ fun QuizCard(
+@@ -15,6 +17,7 @@
+         text = englishWord,
+         color = colorScheme.onSurface,
+         textAlign = TextAlign.Center,
+-        modifier = Modifier.fillMaxWidth()
++        modifier = Modifier
++            .fillMaxWidth()
+     )
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vocabularyapp.ui.components\r\n\r\nimport androidx.compose.foundation.BorderStroke\r\nimport androidx.compose.foundation.shape.CircleShape\r\nimport androidx.compose.material3.MaterialTheme.colorScheme\r\nimport androidx.compose.material3.OutlinedButton\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.res.stringResource\r\nimport androidx.compose.ui.unit.dp\r\nimport com.example.vocabularyapp.R\r\n\r\n@Composable\r\nfun SkipButton(modifier: Modifier = Modifier) {\r\n    OutlinedButton(\r\n        onClick = {},\r\n        shape = CircleShape,\r\n        border = BorderStroke(\r\n            width = 2.dp,\r\n            color = colorScheme.outline,\r\n        ),\r\n        modifier = modifier\r\n    ) {\r\n        Text(\r\n            stringResource(R.string.skip),\r\n            color = colorScheme.outline\r\n        )\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt b/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt
+--- a/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt	(revision 47f6b9b559610136fbefe7282e5a029b90097602)
++++ b/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt	(date 1734959460544)
+@@ -1,6 +1,7 @@
+ package com.example.vocabularyapp.ui.components
+ 
+ import androidx.compose.foundation.BorderStroke
++import androidx.compose.foundation.layout.padding
+ import androidx.compose.foundation.shape.CircleShape
+ import androidx.compose.material3.MaterialTheme.colorScheme
+ import androidx.compose.material3.OutlinedButton
+@@ -12,7 +13,7 @@
+ import com.example.vocabularyapp.R
+ 
+ @Composable
+-fun SkipButton(modifier: Modifier = Modifier) {
++fun SkipButton() {
+     OutlinedButton(
+         onClick = {},
+         shape = CircleShape,
+@@ -20,7 +21,7 @@
+             width = 2.dp,
+             color = colorScheme.outline,
+         ),
+-        modifier = modifier
++        modifier = Modifier.padding(8.dp)
+     ) {
+         Text(
+             stringResource(R.string.skip),
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AndroidLayouts\">\r\n    <shared>\r\n      <config />\r\n    </shared>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"38ce4cb0-6a80-4077-8e08-ccfe140ba5a1\" name=\"Changes\" comment=\"modified\">\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/checksums/checksums.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/checksums/checksums.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/checksums/md5-checksums.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/checksums/md5-checksums.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/checksums/sha1-checksums.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/checksums/sha1-checksums.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.gradle/file-system.probe\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/file-system.probe\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/build.gradle.kts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/build.gradle.kts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/local-state/build-history.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/local-state/build-history.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/proguard-rules.pro\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/proguard-rules.pro\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/CloseButton.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/CloseButton.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/LinearDeterminateIndicator.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/LinearDeterminateIndicator.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/RelativePosition.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/RelativePosition.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\\Users\\takuj\\.android\\avd\\Medium_Phone_API_35.avd)]\" />\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"Nogio810\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Nogio810/VocabularyApp.git\",\r\n    \"accountId\": \"ed70beea-ad55-4b5d-a28d-3fc40947d4c6\"\r\n  }\r\n}]]></component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 6\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2qbtcNXhhkLEQD7qkC7IUf0mxQ7\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\r\n    \"RunOnceActivity.readMode.enableVisualFormatting\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"cf.first.check.clang-format\": \"false\",\r\n    \"cidr.known.project.marker\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/takuj/StudioProjects/VocabularyApp\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"app\" type=\"AndroidRunConfigurationType\" factoryName=\"Android App\" activateToolWindowBeforeRun=\"false\">\r\n      <module name=\"VocabularyApp.app.main\" />\r\n      <option name=\"DEPLOY\" value=\"true\" />\r\n      <option name=\"DEPLOY_APK_FROM_BUNDLE\" value=\"false\" />\r\n      <option name=\"DEPLOY_AS_INSTANT\" value=\"false\" />\r\n      <option name=\"ARTIFACT_NAME\" value=\"\" />\r\n      <option name=\"PM_INSTALL_OPTIONS\" value=\"\" />\r\n      <option name=\"ALL_USERS\" value=\"false\" />\r\n      <option name=\"ALWAYS_INSTALL_WITH_PM\" value=\"false\" />\r\n      <option name=\"CLEAR_APP_STORAGE\" value=\"false\" />\r\n      <option name=\"DYNAMIC_FEATURES_DISABLED_LIST\" value=\"\" />\r\n      <option name=\"ACTIVITY_EXTRA_FLAGS\" value=\"\" />\r\n      <option name=\"MODE\" value=\"default_activity\" />\r\n      <option name=\"RESTORE_ENABLED\" value=\"false\" />\r\n      <option name=\"RESTORE_FILE\" value=\"\" />\r\n      <option name=\"CLEAR_LOGCAT\" value=\"false\" />\r\n      <option name=\"SHOW_LOGCAT_AUTOMATICALLY\" value=\"false\" />\r\n      <option name=\"TARGET_SELECTION_MODE\" value=\"DEVICE_AND_SNAPSHOT_COMBO_BOX\" />\r\n      <option name=\"SELECTED_CLOUD_MATRIX_CONFIGURATION_ID\" value=\"-1\" />\r\n      <option name=\"SELECTED_CLOUD_MATRIX_PROJECT_ID\" value=\"\" />\r\n      <option name=\"DEBUGGER_TYPE\" value=\"Auto\" />\r\n      <Auto>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Auto>\r\n      <Hybrid>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Hybrid>\r\n      <Java>\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Java>\r\n      <Native>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Native>\r\n      <Profilers>\r\n        <option name=\"ADVANCED_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_CPU_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_CPU_PROFILING_CONFIGURATION_NAME\" value=\"Java/Kotlin Method Sample (legacy)\" />\r\n        <option name=\"STARTUP_NATIVE_MEMORY_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"NATIVE_MEMORY_SAMPLE_RATE_BYTES\" value=\"2048\" />\r\n      </Profilers>\r\n      <option name=\"DEEP_LINK\" value=\"\" />\r\n      <option name=\"ACTIVITY_CLASS\" value=\"\" />\r\n      <option name=\"SEARCH_ACTIVITY_IN_GLOBAL_SCOPE\" value=\"false\" />\r\n      <option name=\"SKIP_ACTIVITY_VALIDATION\" value=\"false\" />\r\n      <method v=\"2\">\r\n        <option name=\"Android.Gradle.BeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task id=\"LOCAL-00001\" summary=\"modified\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1734891753671</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1734891753671</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"modified\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1734891863575</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1734891863575</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"modified\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1734893154821</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1734893154821</updated>\r\n    </task>\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"38ce4cb0-6a80-4077-8e08-ccfe140ba5a1\" name=\"Changes\" comment=\"modified\" />\r\n      <created>1734943180806</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1734943180806</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"modified\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"modified\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 47f6b9b559610136fbefe7282e5a029b90097602)
++++ b/.idea/workspace.xml	(date 1734959554271)
+@@ -9,27 +9,54 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="38ce4cb0-6a80-4077-8e08-ccfe140ba5a1" name="Changes" comment="modified">
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/checksums/checksums.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/checksums/md5-checksums.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/checksums/sha1-checksums.bin" afterDir="false" />
++    <list default="true" id="38ce4cb0-6a80-4077-8e08-ccfe140ba5a1" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
+       <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules/app/VocabularyApp.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/VocabularyApp.app.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/cacheable/last-build.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/local-state/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/kotlin/compileDebugKotlin/local-state/build-history.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/CloseButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/CloseButton.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/LinearDeterminateIndicator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/LinearDeterminateIndicator.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/components/ComposableSingletons$SkipButtonKt$lambda-1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/components/ComposableSingletons$SkipButtonKt$lambda-1$1.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/components/ComposableSingletons$SkipButtonKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/components/ComposableSingletons$SkipButtonKt.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/components/SkipButtonKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/components/SkipButtonKt.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/ComposableSingletons$QuizScreenKt$lambda-1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/ComposableSingletons$QuizScreenKt$lambda-1$1.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/ComposableSingletons$QuizScreenKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/ComposableSingletons$QuizScreenKt.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$DarkQuizScreenPreview$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$DarkQuizScreenPreview$1.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$QuizScreen$1$1$1$1.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$QuizScreen$lambda$3$lambda$2$lambda$1$$inlined$itemsIndexed$default$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$QuizScreen$lambda$3$lambda$2$lambda$1$$inlined$itemsIndexed$default$3.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$QuizScreenPreview$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt$QuizScreenPreview$1.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/example/vocabularyapp/ui/screens/QuizScreenKt.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/QuizCard.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/RelativePosition.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/RelativePosition.kt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/SkipButton.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -185,11 +212,36 @@
+       <option name="presentableId" value="Default" />
+       <updated>1734943180806</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/main'">
++      <option name="closed" value="true" />
++      <created>1734959192752</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1734959192752</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/main'">
++      <option name="closed" value="true" />
++      <created>1734959207652</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1734959207652</updated>
++    </task>
++    <task id="LOCAL-00006" summary="Merge remote-tracking branch 'origin/main'">
++      <option name="closed" value="true" />
++      <created>1734959217255</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1734959217255</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="modified" />
+-    <option name="LAST_COMMIT_MESSAGE" value="modified" />
++    <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
++    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/modules/app/VocabularyApp.app.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module version=\"4\">\r\n  <component name=\"ModuleClassLoaderOverlays\">\r\n    <paths>\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay7428483696226533682\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay5130529507672112151\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay9162768499426482883\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay281836932016479789\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay9739100206230443123\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay11430363316830847177\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay6267159337827888997\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay6845083082725059790\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay11570191545275502872\" />\r\n      <option value=\"C:\\Users\\takuj\\AppData\\Local\\Temp\\overlay7973170632996352367\" />\r\n    </paths>\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules/app/VocabularyApp.app.iml b/.idea/modules/app/VocabularyApp.app.iml
+--- a/.idea/modules/app/VocabularyApp.app.iml	(revision 47f6b9b559610136fbefe7282e5a029b90097602)
++++ b/.idea/modules/app/VocabularyApp.app.iml	(date 1734959549593)
+@@ -2,16 +2,8 @@
+ <module version="4">
+   <component name="ModuleClassLoaderOverlays">
+     <paths>
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay7428483696226533682" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay5130529507672112151" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay9162768499426482883" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay281836932016479789" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay9739100206230443123" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay11430363316830847177" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay6267159337827888997" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay6845083082725059790" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay11570191545275502872" />
+-      <option value="C:\Users\takuj\AppData\Local\Temp\overlay7973170632996352367" />
++      <option value="C:\Users\takuj\AppData\Local\Temp\overlay5259973043793443903" />
++      <option value="C:\Users\takuj\AppData\Local\Temp\overlay328516237376958048" />
+     </paths>
+   </component>
+ </module>
+\ No newline at end of file
+Index: app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>30\r\n0
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab b/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+--- a/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab	(revision 47f6b9b559610136fbefe7282e5a029b90097602)
++++ b/app/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab	(date 1734959468787)
+@@ -1,2 +1,2 @@
+-30
++32
+ 0
+\ No newline at end of file
