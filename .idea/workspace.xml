@@ -10,12 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38ce4cb0-6a80-4077-8e08-ccfe140ba5a1" name="Changes" comment="add">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/data/VocabularyDatabase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/data/Word.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/repository/VocabularyRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/model/Choice.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/model/Choice.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/repository/VocabularyDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/repository/VocabularyDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/QuizOptionButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/components/QuizOptionButton.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/ui/screens/QuizScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/kinfure.db" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/kinfure.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/data/vocabulary1.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/repository/VocabularyDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/vocabularyapp/data/VocabularyDao.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Data Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -77,6 +79,14 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/takuj/StudioProjects/VocabularyApp&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\takuj\StudioProjects\VocabularyApp\app\src\main\java\com\example\vocabularyapp\data" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.vocabularyapp.data" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="VocabularyApp.app.main" />
@@ -228,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735057952286</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add">
+      <option name="closed" value="true" />
+      <created>1735098480514</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735098480514</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
