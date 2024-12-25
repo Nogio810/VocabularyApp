@@ -21,10 +21,10 @@ class MainActivity : ComponentActivity() {
         Quiz(
             question = "What does 'This' mean?",
             choices = listOf(
-                Choice("これ", isCorrect = false, isFalse = false),
-                Choice("あれ", isCorrect = false, isFalse = false),
-                Choice("それ", isCorrect = false, isFalse = false),
-                Choice("どれ", isCorrect = false, isFalse = false)
+                Choice("これ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("あれ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("それ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("どれ", isCorrect = false, isFalse = false, isClicked = false)
             )
         )
     )

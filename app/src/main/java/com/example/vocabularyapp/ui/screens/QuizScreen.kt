@@ -86,9 +86,9 @@ fun QuizScreen(quizList: List<Quiz>) {
                     }
                     itemsIndexed(quiz.choices) { index, choice ->
                         when {
-                            choice.isCorrect -> CorrectQuizOptionButton(indent = index + 1, word = choice.questionText)
-                            choice.isFalse -> ErrorQuizOptionButton(indent = index + 1, word = choice.questionText)
-                            else -> QuizOptionButton(indent = index + 1, word = choice.questionText)
+                            choice.isCorrect && choice.isClicked -> CorrectQuizOptionButton(indent = index + 1, word = choice.questionText)
+                            choice.isFalse && choice.isClicked-> ErrorQuizOptionButton(indent = index + 1, word = choice.questionText)
+                            else -> QuizOptionButton(indent = index + 1, word = choice.questionText, clicked = choice.isClicked)
                         }
                     }
                 }
@@ -104,10 +104,10 @@ fun QuizScreenPreview(){
         Quiz(
             question = "What does 'This' mean?",
             choices = listOf(
-                Choice("これ", isCorrect = false, isFalse = false),
-                Choice("あれ", isCorrect = false, isFalse = false),
-                Choice("それ", isCorrect = false, isFalse = false),
-                Choice("どれ", isCorrect = false, isFalse = false)
+                Choice("これ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("あれ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("それ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("どれ", isCorrect = false, isFalse = false, isClicked = false)
             )
         )
     )
@@ -123,10 +123,10 @@ fun DarkQuizScreenPreview(){
         Quiz(
             question = "What does 'This' mean?",
             choices = listOf(
-                Choice("これ", isCorrect = false, isFalse = false),
-                Choice("あれ", isCorrect = false, isFalse = false),
-                Choice("それ", isCorrect = false, isFalse = false),
-                Choice("どれ", isCorrect = false, isFalse = false)
+                Choice("これ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("あれ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("それ", isCorrect = false, isFalse = false, isClicked = false),
+                Choice("どれ", isCorrect = false, isFalse = false, isClicked = false)
             )
         )
     )

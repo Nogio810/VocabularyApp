@@ -6,6 +6,6 @@ import androidx.room.Query
 
 @Dao
 interface VocabularyDao {
-    @Query("SELECT * FROM ")
+    @Query("SELECT * FROM ORDER BY RANDOM() LIMIT 1")
 
 }
