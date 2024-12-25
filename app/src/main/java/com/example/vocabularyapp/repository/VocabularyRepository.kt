@@ -3,6 +3,7 @@ package com.example.vocabularyapp.repository
 import com.example.vocabularyapp.data.VocabularyDao
 import com.example.vocabularyapp.data.Word
 import com.example.vocabularyapp.model.Choice
+import com.example.vocabularyapp.model.Quiz
 
 class VocabularyRepository(private val vocabularyDao: VocabularyDao){
     suspend fun getQuizWord(): Word{
@@ -15,7 +16,7 @@ class VocabularyRepository(private val vocabularyDao: VocabularyDao){
             otherTranslations.mapTo(this){ Choice(questionText = arrangeChoices(it), isCorrect = false, isFalse = false, isClicked = false)}
             add(Choice(questionText = arrangeChoices(correctWord), isCorrect = true, isFalse = false, isClicked = false))
         }
-        return choiceTranslations
+        return choiceTranslations.shuffled()
     }
 
     private fun arrangeChoices(word: Word): String{
@@ -29,5 +30,12 @@ class VocabularyRepository(private val vocabularyDao: VocabularyDao){
         )
         val stringTranslations = translations.joinToString(separator = ", ")
         return stringTranslations
+    }
+
+    suspend fun generateQuiz(): Quiz{
+        val correctWord = getQuizWord()
+        val choices = generateChoices(correctWord = correctWord)
+
+        return Quiz(question = correctWord.word, choices = choices)
     }
 }

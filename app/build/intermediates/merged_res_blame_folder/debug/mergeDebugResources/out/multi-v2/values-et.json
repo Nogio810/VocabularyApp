@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.vocabularyapp-mergeDebugResources-46:/values-et/values-et.xml",
+            "outputFile": "com.example.vocabularyapp-mergeDebugResources-53:/values-et/values-et.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\ae52f0645bb4bd3dad8486b0ac93071f\\transformed\\core-1.13.1\\res\\values-et\\values-et.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,150,252,350,453,559,664,784",
-                        "endColumns": "94,101,97,102,105,104,119,100",
-                        "endOffsets": "145,247,345,448,554,659,779,880"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,80",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,302,400,503,609,714,8227",
-                        "endColumns": "94,101,97,102,105,104,119,100",
-                        "endOffsets": "195,297,395,498,604,709,829,8323"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\627533e713c54a9fb0e71ae0277a40aa\\transformed\\ui-release\\res\\values-et\\values-et.xml",
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\8f7dd7753f557e8ef3b587cd3bbcd659\\transformed\\ui-release\\res\\values-et\\values-et.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\bb736c72fc0ee8fa294737d89fa5d882\\transformed\\foundation-release\\res\\values-et\\values-et.xml",
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\30a7dda786e5a995c4a33f20e18ef6f8\\transformed\\foundation-release\\res\\values-et\\values-et.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -55,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\b1125694cd095bb0235d964185d4238d\\transformed\\material3-release\\res\\values-et\\values-et.xml",
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\0d0434f8b745b0949d54cc1c9550ce81\\transformed\\core-1.13.1\\res\\values-et\\values-et.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,252,350,453,559,664,784",
+                        "endColumns": "94,101,97,102,105,104,119,100",
+                        "endOffsets": "145,247,345,448,554,659,779,880"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,80",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,302,400,503,609,714,8227",
+                        "endColumns": "94,101,97,102,105,104,119,100",
+                        "endOffsets": "195,297,395,498,604,709,829,8323"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.9\\transforms\\7c583cda237a93fd30533e34d00fcc33\\transformed\\material3-release\\res\\values-et\\values-et.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

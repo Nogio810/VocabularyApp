@@ -13,9 +13,9 @@ import androidx.compose.ui.unit.dp
 import com.example.vocabularyapp.R
 
 @Composable
-fun SkipButton() {
+fun SkipButton(onClick: () -> Unit) {
     OutlinedButton(
-        onClick = {},
+        onClick = onClick,
         shape = CircleShape,
         border = BorderStroke(
             width = 2.dp,

@@ -1,5 +1,8 @@
 package com.example.vocabularyapp.ui.screens
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,13 +14,21 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.compose.VocabularyAppTheme
-import com.example.vocabularyapp.model.Choice
-import com.example.vocabularyapp.model.Quiz
 import com.example.vocabularyapp.ui.components.CloseButton
 import com.example.vocabularyapp.ui.components.CorrectQuizOptionButton
 import com.example.vocabularyapp.ui.components.ErrorQuizOptionButton
@@ -27,9 +38,17 @@ import com.example.vocabularyapp.ui.components.QuizCard
 import com.example.vocabularyapp.ui.components.QuizOptionButton
 import com.example.vocabularyapp.ui.components.RelativePosition
 import com.example.vocabularyapp.ui.components.SkipButton
+import com.example.vocabularyapp.viewmodel.QuizViewModel
+import kotlinx.coroutines.delay
 
 @Composable
-fun QuizScreen(quizList: List<Quiz>) {
+fun QuizScreen(
+    viewModel: QuizViewModel = viewModel()
+) {
+    val quizList by viewModel.quizList.observeAsState(initial = emptyList())
+    var currentQuizIndex by remember { mutableIntStateOf(0) }
+    var showResult by remember { mutableStateOf(false) }
+    var selectedChoiceIndex by remember { mutableIntStateOf(-1) }
     Box(modifier = Modifier.fillMaxSize()) {
         Column {
             Spacer(
@@ -42,7 +61,7 @@ fun QuizScreen(quizList: List<Quiz>) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
-                        .fillMaxWidth()
+                            .fillMaxWidth()
                     ) {
                         CloseButton()
                         LinearDeterminateIndicator(modifier = Modifier.weight(1f))
@@ -56,16 +75,17 @@ fun QuizScreen(quizList: List<Quiz>) {
                             .weight(1f)
                     )
                 }
-                quizList.forEachIndexed { quizIndex, quiz ->
+                if (quizList.isNotEmpty() && currentQuizIndex < quizList.size) {
+                    val currentQuiz = quizList[currentQuizIndex]
                     item {
                         RelativePosition(
-                            indent = quizIndex + 1,
+                            indent = currentQuizIndex + 1,
                             size = quizList.size
                         )
                     }
                     item {
                         QuizCard(
-                            englishWord = quiz.question
+                            englishWord = currentQuiz.question
                         )
                     }
                     item {
@@ -81,14 +101,62 @@ fun QuizScreen(quizList: List<Quiz>) {
                                 .fillMaxWidth(),
                             contentAlignment = Alignment.CenterEnd,
                         ) {
-                            SkipButton()
+                            SkipButton {
+                                currentQuizIndex =
+                                    (currentQuizIndex + 1).coerceAtMost(quizList.size - 1)
+                                selectedChoiceIndex = -1
+                            }
                         }
                     }
-                    itemsIndexed(quiz.choices) { index, choice ->
-                        when {
-                            choice.isCorrect && choice.isClicked -> CorrectQuizOptionButton(indent = index + 1, word = choice.questionText)
-                            choice.isFalse && choice.isClicked-> ErrorQuizOptionButton(indent = index + 1, word = choice.questionText)
-                            else -> QuizOptionButton(indent = index + 1, word = choice.questionText, clicked = choice.isClicked)
+                    itemsIndexed(currentQuiz.choices) { index, choice ->
+                        val isCorrect = choice.isCorrect
+                        val isClicked = selectedChoiceIndex == index
+                        AnimatedVisibility(
+                            visible = !showResult || isClicked,
+                            enter = fadeIn(),
+                            exit = fadeOut()
+                        ) {
+                            when {
+                                isCorrect && isClicked -> CorrectQuizOptionButton(
+                                    indent = index + 1,
+                                    word = choice.questionText
+                                )
+                                !isCorrect && isClicked -> ErrorQuizOptionButton(
+                                    indent = index + 1,
+                                    word = choice.questionText
+                                )
+                                else -> QuizOptionButton(
+                                    indent = index + 1,
+                                    word = choice.questionText,
+                                ) {
+                                    if (!showResult) {
+                                        selectedChoiceIndex = index
+                                        showResult = true
+
+                                    }
+                                }
+                            }
+                        }
+                        LaunchedEffect(Pair(currentQuizIndex, selectedChoiceIndex)) {
+                            if (showResult) {
+                                delay(2000)
+                                showResult = false
+                                selectedChoiceIndex = -1
+                                currentQuizIndex =
+                                    (currentQuizIndex + 1).coerceAtMost(quizList.size - 1)
+                            }
+                        }
+                    }
+                }else if(quizList.isNotEmpty() && currentQuizIndex >= quizList.size){
+                    item {
+                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            Text("お疲れさまでした")
+                        }
+                    }
+                }else{
+                    item {
+                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                            CircularProgressIndicator()
                         }
                     }
                 }
@@ -97,40 +165,19 @@ fun QuizScreen(quizList: List<Quiz>) {
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun QuizScreenPreview(){
-    val quizList = listOf(
-        Quiz(
-            question = "What does 'This' mean?",
-            choices = listOf(
-                Choice("これ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("あれ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("それ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("どれ", isCorrect = false, isFalse = false, isClicked = false)
-            )
-        )
-    )
+fun QuizScreenPreview() {
     VocabularyAppTheme(darkTheme = false) {
-        QuizScreen(quizList = quizList)
+        QuizScreen()
     }
 }
 
 @Preview
 @Composable
-fun DarkQuizScreenPreview(){
-    val quizList = listOf(
-        Quiz(
-            question = "What does 'This' mean?",
-            choices = listOf(
-                Choice("これ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("あれ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("それ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("どれ", isCorrect = false, isFalse = false, isClicked = false)
-            )
-        )
-    )
+fun DarkQuizScreenPreview() {
     VocabularyAppTheme(darkTheme = true) {
-        QuizScreen(quizList = quizList)
+        QuizScreen()
     }
 }

@@ -1,6 +1,7 @@
 package com.example.vocabularyapp.ui.components
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,7 +18,7 @@ import androidx.compose.ui.unit.dp
 fun QuizOptionButton(
     indent: Int,
     word: String,
-    clicked: Boolean
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -35,6 +36,7 @@ fun QuizOptionButton(
             )
             .padding(16.dp)
             .fillMaxWidth()
+            .clickable { onClick() }
     ) {
         Text(
             text = indent.toString(),

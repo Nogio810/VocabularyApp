@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.compose.VocabularyAppTheme
 import com.example.vocabularyapp.model.Choice
 import com.example.vocabularyapp.model.Quiz
+import com.example.vocabularyapp.ui.screens.AppScreen
 import com.example.vocabularyapp.ui.screens.QuizScreen
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VocabularyAppTheme {
-                QuizScreen(quizList)
+                AppScreen()
             }
         }
     }
