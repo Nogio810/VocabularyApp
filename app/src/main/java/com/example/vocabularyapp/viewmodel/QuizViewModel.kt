@@ -6,9 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vocabularyapp.model.Quiz
 import com.example.vocabularyapp.repository.VocabularyRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class QuizViewModel (private val repository: VocabularyRepository) : ViewModel(){
+@HiltViewModel
+class QuizViewModel @Inject constructor(
+    private val repository: VocabularyRepository
+) : ViewModel(){
     private val _quizList = MutableLiveData<List<Quiz>>()
     val quizList: LiveData<List<Quiz>> get() = _quizList
 

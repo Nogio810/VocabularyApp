@@ -41,9 +41,8 @@ import com.example.vocabularyapp.ui.components.SkipButton
 import com.example.vocabularyapp.viewmodel.QuizViewModel
 import kotlinx.coroutines.delay
 
-@Composable
 fun QuizScreen(
-    viewModel: QuizViewModel = viewModel()
+    viewModel: QuizViewModel = hiltViewModel()
 ) {
     val quizList by viewModel.quizList.observeAsState(initial = emptyList())
     var currentQuizIndex by remember { mutableIntStateOf(0) }
