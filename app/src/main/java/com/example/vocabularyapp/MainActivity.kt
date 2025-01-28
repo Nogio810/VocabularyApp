@@ -16,19 +16,10 @@ import com.example.vocabularyapp.model.Choice
 import com.example.vocabularyapp.model.Quiz
 import com.example.vocabularyapp.ui.screens.AppScreen
 import com.example.vocabularyapp.ui.screens.QuizScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    val quizList = listOf(
-        Quiz(
-            question = "What does 'This' mean?",
-            choices = listOf(
-                Choice("これ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("あれ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("それ", isCorrect = false, isFalse = false, isClicked = false),
-                Choice("どれ", isCorrect = false, isFalse = false, isClicked = false)
-            )
-        )
-    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Circle
+import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
@@ -38,7 +38,7 @@ fun CorrectQuizOptionButton(
             .background(colorScheme.surfaceVariant)
     ) {
         Icon(
-            Icons.Filled.Circle,
+            Icons.Outlined.Circle,
             contentDescription = null,
             tint = correct
         )

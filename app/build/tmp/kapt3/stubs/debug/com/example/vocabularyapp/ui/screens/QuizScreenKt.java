@@ -1,0 +1,26 @@
+package com.example.vocabularyapp.ui.screens;
+
+import androidx.compose.runtime.Composable;
+import androidx.compose.ui.Alignment;
+import androidx.compose.ui.Modifier;
+import androidx.compose.ui.tooling.preview.Preview;
+import com.example.vocabularyapp.viewmodel.QuizViewModel;
+
+@kotlin.Metadata(mv = {1, 9, 0}, k = 2, xi = 48, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\b\u0010\u0000\u001a\u00020\u0001H\u0007\u001a\u0012\u0010\u0002\u001a\u00020\u00012\b\b\u0002\u0010\u0003\u001a\u00020\u0004H\u0007\u001a\b\u0010\u0005\u001a\u00020\u0001H\u0007\u00a8\u0006\u0006"}, d2 = {"DarkQuizScreenPreview", "", "QuizScreen", "viewModel", "Lcom/example/vocabularyapp/viewmodel/QuizViewModel;", "QuizScreenPreview", "app_debug"})
+public final class QuizScreenKt {
+    
+    @androidx.compose.runtime.Composable()
+    public static final void QuizScreen(@org.jetbrains.annotations.NotNull()
+    com.example.vocabularyapp.viewmodel.QuizViewModel viewModel) {
+    }
+    
+    @androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+    @androidx.compose.runtime.Composable()
+    public static final void QuizScreenPreview() {
+    }
+    
+    @androidx.compose.ui.tooling.preview.Preview()
+    @androidx.compose.runtime.Composable()
+    public static final void DarkQuizScreenPreview() {
+    }
+}

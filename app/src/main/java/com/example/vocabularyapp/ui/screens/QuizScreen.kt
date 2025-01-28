@@ -27,7 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.compose.VocabularyAppTheme
 import com.example.vocabularyapp.ui.components.CloseButton
 import com.example.vocabularyapp.ui.components.CorrectQuizOptionButton
@@ -41,6 +41,7 @@ import com.example.vocabularyapp.ui.components.SkipButton
 import com.example.vocabularyapp.viewmodel.QuizViewModel
 import kotlinx.coroutines.delay
 
+@Composable
 fun QuizScreen(
     viewModel: QuizViewModel = hiltViewModel()
 ) {
