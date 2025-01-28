@@ -1,8 +1,6 @@
 package com.example.vocabularyapp.ui.screens
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -49,6 +47,7 @@ fun QuizScreen(
     var currentQuizIndex by remember { mutableIntStateOf(0) }
     var showResult by remember { mutableStateOf(false) }
     var selectedChoiceIndex by remember { mutableIntStateOf(-1) }
+    Log.d("QuizList", "List contents: $quizList")
     Box(modifier = Modifier.fillMaxSize()) {
         Column {
             Spacer(
@@ -111,51 +110,48 @@ fun QuizScreen(
                     itemsIndexed(currentQuiz.choices) { index, choice ->
                         val isCorrect = choice.isCorrect
                         val isClicked = selectedChoiceIndex == index
-                        AnimatedVisibility(
-                            visible = !showResult || isClicked,
-                            enter = fadeIn(),
-                            exit = fadeOut()
-                        ) {
-                            when {
-                                isCorrect && isClicked -> CorrectQuizOptionButton(
-                                    indent = index + 1,
-                                    word = choice.questionText
-                                )
-                                !isCorrect && isClicked -> ErrorQuizOptionButton(
-                                    indent = index + 1,
-                                    word = choice.questionText
-                                )
-                                else -> QuizOptionButton(
-                                    indent = index + 1,
-                                    word = choice.questionText,
-                                ) {
-                                    if (!showResult) {
-                                        selectedChoiceIndex = index
-                                        showResult = true
+                        when {
+                            isCorrect && isClicked || isCorrect && showResult -> CorrectQuizOptionButton(
+                                word = choice.questionText
+                            )
+                            !isCorrect && isClicked -> ErrorQuizOptionButton(
+                                word = choice.questionText
+                            )
+                            else -> QuizOptionButton(
+                                indent = index + 1,
+                                word = choice.questionText,
+                            ) {
+                                if (!showResult) {
+                                    selectedChoiceIndex = index
+                                    showResult = true
 
-                                    }
                                 }
                             }
                         }
-                        LaunchedEffect(Pair(currentQuizIndex, selectedChoiceIndex)) {
-                            if (showResult) {
+                        if (isClicked){
+                            LaunchedEffect(Unit) {
                                 delay(2000)
                                 showResult = false
                                 selectedChoiceIndex = -1
-                                currentQuizIndex =
-                                    (currentQuizIndex + 1).coerceAtMost(quizList.size - 1)
+                                currentQuizIndex += 1
                             }
                         }
                     }
-                }else if(quizList.isNotEmpty() && currentQuizIndex >= quizList.size){
+                } else if (quizList.isNotEmpty() && currentQuizIndex >= quizList.size) {
                     item {
-                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
                             Text("お疲れさまでした")
                         }
                     }
-                }else{
+                } else {
                     item {
-                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
                             CircularProgressIndicator()
                         }
                     }

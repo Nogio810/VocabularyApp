@@ -13,8 +13,8 @@ class VocabularyRepository(private val vocabularyDao: VocabularyDao){
     suspend fun generateChoices(correctWord: Word): List<Choice>{
         val otherTranslations = vocabularyDao.getOtherTranslations(correctWord.id)
         val choiceTranslations = buildList {
-            otherTranslations.mapTo(this){ Choice(questionText = arrangeChoices(it), isCorrect = false, isFalse = false, isClicked = false)}
-            add(Choice(questionText = arrangeChoices(correctWord), isCorrect = true, isFalse = false, isClicked = false))
+            otherTranslations.mapTo(this){ Choice(questionText = arrangeChoices(it), isCorrect = false)}
+            add(Choice(questionText = arrangeChoices(correctWord), isCorrect = true))
         }
         return choiceTranslations.shuffled()
     }

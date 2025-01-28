@@ -1,5 +1,6 @@
 package com.example.vocabularyapp.ui.screens;
 
+import android.util.Log;
 import androidx.compose.runtime.Composable;
 import androidx.compose.ui.Alignment;
 import androidx.compose.ui.Modifier;

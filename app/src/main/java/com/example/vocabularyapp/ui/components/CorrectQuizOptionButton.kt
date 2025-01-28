@@ -20,13 +20,17 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun CorrectQuizOptionButton(
-    indent: Int,
     word: String
 ) {
     val correct = Color(0xff00cc33)
     Row(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(
+                start = 16.dp,
+                end = 16.dp,
+                top = 8.dp,
+                bottom = 8.dp
+            )
             .clip(RoundedCornerShape(8.dp))  // 形状を角丸に
             .border(
                 2.dp,

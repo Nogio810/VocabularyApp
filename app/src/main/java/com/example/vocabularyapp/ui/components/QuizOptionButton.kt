@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
@@ -40,8 +41,9 @@ fun QuizOptionButton(
     ) {
         Text(
             text = indent.toString(),
-            textAlign = TextAlign.Start,
+            textAlign = TextAlign.Center,
             color = colorScheme.outline,
+            modifier = Modifier.width(24.dp)
         )
         Text(
             text = word,
