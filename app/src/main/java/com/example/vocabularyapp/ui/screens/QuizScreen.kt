@@ -6,14 +6,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -26,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.compose.VocabularyAppTheme
 import com.example.vocabularyapp.ui.components.CloseButton
 import com.example.vocabularyapp.ui.components.CorrectQuizOptionButton
@@ -41,73 +44,82 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun QuizScreen(
-    viewModel: QuizViewModel = hiltViewModel()
+    viewModel: QuizViewModel = hiltViewModel(),
+    navController: NavController
 ) {
     val quizList by viewModel.quizList.observeAsState(initial = emptyList())
     var currentQuizIndex by remember { mutableIntStateOf(0) }
     var showResult by remember { mutableStateOf(false) }
     var selectedChoiceIndex by remember { mutableIntStateOf(-1) }
+    var isSkipped by remember { mutableStateOf(false) }
+    var isAnimating by remember { mutableStateOf(true) }
+    var correctAnswers by remember { mutableIntStateOf(0) }
     Log.d("QuizList", "List contents: $quizList")
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .padding(WindowInsets.navigationBars.asPaddingValues())
+    ) {
         Column {
             Spacer(
                 Modifier.windowInsetsBottomHeight(
                     WindowInsets.systemBars
                 )
             )
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                item {
+            if (quizList.isNotEmpty() && currentQuizIndex < quizList.size) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    val currentQuiz = quizList[currentQuizIndex]
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
                     ) {
                         CloseButton()
-                        LinearDeterminateIndicator(modifier = Modifier.weight(1f))
+                        LinearDeterminateIndicator(
+                            modifier = Modifier.weight(1f),
+                            isAnimating = isAnimating,
+                            onAnimationEnd = {
+                                if (!showResult) {
+                                    showResult = true
+                                    isAnimating = false // アニメーション停止
+                                }
+                            }
+                        )
                         MoreHorizonButton()
                     }
-                }
-                item {
                     Spacer(
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(1f)
                     )
-                }
-                if (quizList.isNotEmpty() && currentQuizIndex < quizList.size) {
-                    val currentQuiz = quizList[currentQuizIndex]
-                    item {
-                        RelativePosition(
-                            indent = currentQuizIndex + 1,
-                            size = quizList.size
-                        )
-                    }
-                    item {
-                        QuizCard(
-                            englishWord = currentQuiz.question
-                        )
-                    }
-                    item {
-                        Spacer(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f)
-                        )
-                    }
-                    item {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            contentAlignment = Alignment.CenterEnd,
-                        ) {
-                            SkipButton {
-                                currentQuizIndex =
-                                    (currentQuizIndex + 1).coerceAtMost(quizList.size - 1)
-                                selectedChoiceIndex = -1
-                            }
+                    RelativePosition(
+                        indent = currentQuizIndex + 1,
+                        size = quizList.size
+                    )
+                    QuizCard(
+                        englishWord = currentQuiz.question
+                    )
+                    Spacer(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                    )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        contentAlignment = Alignment.CenterEnd,
+                    ) {
+                        SkipButton {
+                            isSkipped = true
+                            showResult = true
+                            isAnimating = false
                         }
                     }
-                    itemsIndexed(currentQuiz.choices) { index, choice ->
+                    currentQuiz.choices.mapIndexed { index, choice ->
                         val isCorrect = choice.isCorrect
                         val isClicked = selectedChoiceIndex == index
                         when {
@@ -124,56 +136,37 @@ fun QuizScreen(
                                 if (!showResult) {
                                     selectedChoiceIndex = index
                                     showResult = true
-
+                                    isAnimating = false
+                                    if (choice.isCorrect){
+                                        correctAnswers += 1
+                                    }
                                 }
                             }
                         }
-                        if (isClicked){
-                            LaunchedEffect(Unit) {
-                                delay(2000)
-                                showResult = false
-                                selectedChoiceIndex = -1
-                                currentQuizIndex += 1
+                    }
+                    LaunchedEffect(showResult) {
+                        if (showResult){
+                            delay(2000)
+                            isSkipped = false
+                            showResult = false
+                            isAnimating = true
+                            selectedChoiceIndex = -1
+                            currentQuizIndex += 1
+                            if(currentQuizIndex >= quizList.size){
+                                navController.navigate("result/$correctAnswers/${quizList.size}")
                             }
                         }
                     }
-                } else if (quizList.isNotEmpty() && currentQuizIndex >= quizList.size) {
-                    item {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("お疲れさまでした")
-                        }
-                    }
-                } else {
-                    item {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            CircularProgressIndicator()
-                        }
-                    }
+                }
+            } else {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
                 }
             }
         }
     }
 }
 
-
-@Preview(showBackground = true)
-@Composable
-fun QuizScreenPreview() {
-    VocabularyAppTheme(darkTheme = false) {
-        QuizScreen()
-    }
-}
-
-@Preview
-@Composable
-fun DarkQuizScreenPreview() {
-    VocabularyAppTheme(darkTheme = true) {
-        QuizScreen()
-    }
-}

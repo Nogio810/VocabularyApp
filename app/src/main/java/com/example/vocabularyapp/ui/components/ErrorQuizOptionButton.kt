@@ -23,18 +23,19 @@ fun ErrorQuizOptionButton(
 ) {
     Row(
         modifier = Modifier
-            .clip(RoundedCornerShape(8.dp))  // 形状を角丸に
-            .border(
-                2.dp,
-                color = colorScheme.error,
-                RoundedCornerShape(8.dp)
-            )
             .padding(
                 start = 16.dp,
                 end = 16.dp,
                 top = 8.dp,
                 bottom = 8.dp
             )
+            .clip(RoundedCornerShape(8.dp))  // 形状を角丸に
+            .border(
+                2.dp,
+                color = colorScheme.error,
+                RoundedCornerShape(8.dp)
+            )
+            .padding(16.dp)
             .fillMaxWidth()
             .background(colorScheme.surfaceVariant)
     ) {
