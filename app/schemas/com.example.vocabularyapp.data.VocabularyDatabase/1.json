@@ -1,0 +1,178 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "91724a93eaf9ba30c17170fbb8c839f6",
+    "entities": [
+      {
+        "tableName": "vocabulary",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`単語番号` INTEGER NOT NULL, `レベル` TEXT NOT NULL, `単語` TEXT NOT NULL, `名詞1` TEXT, `名詞2` TEXT, `名詞3` TEXT, `名詞4` TEXT, `名詞5` TEXT, `動詞1` TEXT, `動詞2` TEXT, `動詞3` TEXT, `動詞4` TEXT, `動詞5` TEXT, `動詞6` TEXT, `形容詞1` TEXT, `形容詞2` TEXT, `形容詞3` TEXT, `形容詞4` TEXT, `形容詞5` TEXT, `形容詞6` TEXT, `副詞1` TEXT, `副詞2` TEXT, `副詞3` TEXT, `副詞4` TEXT, `前置詞1` TEXT, `前置詞2` TEXT, `接続詞1` TEXT, `接続詞2` TEXT, `熟語1` TEXT, `熟語2` TEXT, PRIMARY KEY(`単語番号`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "単語番号",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "level",
+            "columnName": "レベル",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "word",
+            "columnName": "単語",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "noun1",
+            "columnName": "名詞1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "noun2",
+            "columnName": "名詞2",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "noun3",
+            "columnName": "名詞3",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "noun4",
+            "columnName": "名詞4",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "noun5",
+            "columnName": "名詞5",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "verb1",
+            "columnName": "動詞1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "verb2",
+            "columnName": "動詞2",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "verb3",
+            "columnName": "動詞3",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "verb4",
+            "columnName": "動詞4",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "verb5",
+            "columnName": "動詞5",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "verb6",
+            "columnName": "動詞6",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adj1",
+            "columnName": "形容詞1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adj2",
+            "columnName": "形容詞2",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adj3",
+            "columnName": "形容詞3",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adj4",
+            "columnName": "形容詞4",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adj5",
+            "columnName": "形容詞5",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adj6",
+            "columnName": "形容詞6",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adv1",
+            "columnName": "副詞1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adv2",
+            "columnName": "副詞2",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adv3",
+            "columnName": "副詞3",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "adv4",
+            "columnName": "副詞4",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "prep1",
+            "columnName": "前置詞1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "prep2",
+            "columnName": "前置詞2",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "conj1",
+            "columnName": "接続詞1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "conj2",
+            "columnName": "接続詞2",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "idiom1",
+            "columnName": "熟語1",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "idiom2",
+            "columnName": "熟語2",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "単語番号"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '91724a93eaf9ba30c17170fbb8c839f6')"
+    ]
+  }
+}
