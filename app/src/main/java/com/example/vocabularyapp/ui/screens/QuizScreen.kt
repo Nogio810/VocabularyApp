@@ -18,6 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
@@ -44,10 +45,10 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun QuizScreen(
-    viewModel: QuizViewModel = hiltViewModel(),
+    viewModel: QuizViewModel,
     navController: NavController
 ) {
-    val quizList by viewModel.quizList.observeAsState(initial = emptyList())
+    val quizList by viewModel.quizList.collectAsState()
     var currentQuizIndex by remember { mutableIntStateOf(0) }
     var showResult by remember { mutableStateOf(false) }
     var selectedChoiceIndex by remember { mutableIntStateOf(-1) }
@@ -55,9 +56,10 @@ fun QuizScreen(
     var isAnimating by remember { mutableStateOf(true) }
     var correctAnswers by remember { mutableIntStateOf(0) }
     Log.d("QuizList", "List contents: $quizList")
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .padding(WindowInsets.navigationBars.asPaddingValues())
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(WindowInsets.navigationBars.asPaddingValues())
     ) {
         Column {
             Spacer(
@@ -126,9 +128,11 @@ fun QuizScreen(
                             isCorrect && isClicked || isCorrect && showResult -> CorrectQuizOptionButton(
                                 word = choice.questionText
                             )
+
                             !isCorrect && isClicked -> ErrorQuizOptionButton(
                                 word = choice.questionText
                             )
+
                             else -> QuizOptionButton(
                                 indent = index + 1,
                                 word = choice.questionText,
@@ -137,7 +141,7 @@ fun QuizScreen(
                                     selectedChoiceIndex = index
                                     showResult = true
                                     isAnimating = false
-                                    if (choice.isCorrect){
+                                    if (choice.isCorrect) {
                                         correctAnswers += 1
                                     }
                                 }
@@ -145,14 +149,14 @@ fun QuizScreen(
                         }
                     }
                     LaunchedEffect(showResult) {
-                        if (showResult){
+                        if (showResult) {
                             delay(2000)
                             isSkipped = false
                             showResult = false
                             isAnimating = true
                             selectedChoiceIndex = -1
                             currentQuizIndex += 1
-                            if(currentQuizIndex >= quizList.size){
+                            if (currentQuizIndex >= quizList.size) {
                                 navController.navigate("result/$correctAnswers/${quizList.size}")
                             }
                         }

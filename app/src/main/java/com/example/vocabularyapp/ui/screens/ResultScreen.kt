@@ -21,7 +21,8 @@ fun ResultScreen(
     totalQuestions: Int,
     onRetry: () -> Unit,
     onBackToHome: () -> Unit
-){
+) {
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,11 +35,13 @@ fun ResultScreen(
             Text(text = "正解数：$correctAnswers / $totalQuestions")
             Spacer(modifier = Modifier.height(24.dp))
             Row {
-                Button(onClick = onRetry) {
+                Button(
+                    onClick = onRetry
+                ) {
                     Text(text = "もう一度挑戦")
                 }
                 Spacer(modifier = Modifier.width(16.dp))
-                Button(onClick = onBackToHome){
+                Button(onClick = onBackToHome) {
                     Text(text = "ホームへ戻る")
                 }
             }

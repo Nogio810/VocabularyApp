@@ -12,6 +12,8 @@ import com.example.vocabularyapp.di.AppModule_ProvideVocabularyDaoFactory;
 import com.example.vocabularyapp.di.AppModule_ProvideVocabularyDatabaseFactory;
 import com.example.vocabularyapp.di.AppModule_ProvideVocabularyRepositoryFactory;
 import com.example.vocabularyapp.repository.VocabularyRepository;
+import com.example.vocabularyapp.viewmodel.LevelSelectionViewModel;
+import com.example.vocabularyapp.viewmodel.LevelSelectionViewModel_HiltModules;
 import com.example.vocabularyapp.viewmodel.QuizViewModel;
 import com.example.vocabularyapp.viewmodel.QuizViewModel_HiltModules;
 import dagger.hilt.android.ActivityRetainedLifecycle;
@@ -34,6 +36,7 @@ import dagger.internal.DoubleCheck;
 import dagger.internal.IdentifierNameString;
 import dagger.internal.KeepFieldType;
 import dagger.internal.LazyClassKeyMap;
+import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
 import dagger.internal.Provider;
 import java.util.Collections;
@@ -373,7 +376,7 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     @Override
     public Map<Class<?>, Boolean> getViewModelKeys() {
-      return LazyClassKeyMap.<Boolean>of(Collections.<String, Boolean>singletonMap(LazyClassKeyProvider.com_example_vocabularyapp_viewmodel_QuizViewModel, QuizViewModel_HiltModules.KeyModule.provide()));
+      return LazyClassKeyMap.<Boolean>of(MapBuilder.<String, Boolean>newMapBuilder(2).put(LazyClassKeyProvider.com_example_vocabularyapp_viewmodel_LevelSelectionViewModel, LevelSelectionViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_example_vocabularyapp_viewmodel_QuizViewModel, QuizViewModel_HiltModules.KeyModule.provide()).build());
     }
 
     @Override
@@ -393,7 +396,12 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
+      static String com_example_vocabularyapp_viewmodel_LevelSelectionViewModel = "com.example.vocabularyapp.viewmodel.LevelSelectionViewModel";
+
       static String com_example_vocabularyapp_viewmodel_QuizViewModel = "com.example.vocabularyapp.viewmodel.QuizViewModel";
+
+      @KeepFieldType
+      LevelSelectionViewModel com_example_vocabularyapp_viewmodel_LevelSelectionViewModel2;
 
       @KeepFieldType
       QuizViewModel com_example_vocabularyapp_viewmodel_QuizViewModel2;
@@ -406,6 +414,8 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
     private final ActivityRetainedCImpl activityRetainedCImpl;
 
     private final ViewModelCImpl viewModelCImpl = this;
+
+    private Provider<LevelSelectionViewModel> levelSelectionViewModelProvider;
 
     private Provider<QuizViewModel> quizViewModelProvider;
 
@@ -422,12 +432,13 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
-      this.quizViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.levelSelectionViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.quizViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
     }
 
     @Override
     public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(Collections.<String, javax.inject.Provider<ViewModel>>singletonMap(LazyClassKeyProvider.com_example_vocabularyapp_viewmodel_QuizViewModel, ((Provider) quizViewModelProvider)));
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(MapBuilder.<String, javax.inject.Provider<ViewModel>>newMapBuilder(2).put(LazyClassKeyProvider.com_example_vocabularyapp_viewmodel_LevelSelectionViewModel, ((Provider) levelSelectionViewModelProvider)).put(LazyClassKeyProvider.com_example_vocabularyapp_viewmodel_QuizViewModel, ((Provider) quizViewModelProvider)).build());
     }
 
     @Override
@@ -439,8 +450,13 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_example_vocabularyapp_viewmodel_QuizViewModel = "com.example.vocabularyapp.viewmodel.QuizViewModel";
 
+      static String com_example_vocabularyapp_viewmodel_LevelSelectionViewModel = "com.example.vocabularyapp.viewmodel.LevelSelectionViewModel";
+
       @KeepFieldType
       QuizViewModel com_example_vocabularyapp_viewmodel_QuizViewModel2;
+
+      @KeepFieldType
+      LevelSelectionViewModel com_example_vocabularyapp_viewmodel_LevelSelectionViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -464,7 +480,10 @@ public final class DaggerMyApplication_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.example.vocabularyapp.viewmodel.QuizViewModel 
+          case 0: // com.example.vocabularyapp.viewmodel.LevelSelectionViewModel 
+          return (T) new LevelSelectionViewModel();
+
+          case 1: // com.example.vocabularyapp.viewmodel.QuizViewModel 
           return (T) new QuizViewModel(singletonCImpl.provideVocabularyRepositoryProvider.get());
 
           default: throw new AssertionError(id);

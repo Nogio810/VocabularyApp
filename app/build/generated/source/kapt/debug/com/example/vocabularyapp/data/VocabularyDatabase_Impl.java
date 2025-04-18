@@ -1,16 +1,14 @@
 package com.example.vocabularyapp.data;
 
 import androidx.annotation.NonNull;
-import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
-import androidx.room.RoomDatabase;
-import androidx.room.RoomOpenHelper;
+import androidx.room.RoomOpenDelegate;
 import androidx.room.migration.AutoMigrationSpec;
 import androidx.room.migration.Migration;
 import androidx.room.util.DBUtil;
 import androidx.room.util.TableInfo;
-import androidx.sqlite.db.SupportSQLiteDatabase;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
+import androidx.sqlite.SQLite;
+import androidx.sqlite.SQLiteConnection;
 import java.lang.Class;
 import java.lang.Override;
 import java.lang.String;
@@ -24,133 +22,111 @@ import java.util.Set;
 import javax.annotation.processing.Generated;
 
 @Generated("androidx.room.RoomProcessor")
-@SuppressWarnings({"unchecked", "deprecation"})
+@SuppressWarnings({"unchecked", "deprecation", "removal"})
 public final class VocabularyDatabase_Impl extends VocabularyDatabase {
   private volatile VocabularyDao _vocabularyDao;
 
   @Override
   @NonNull
-  protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+  protected RoomOpenDelegate createOpenDelegate() {
+    final RoomOpenDelegate _openDelegate = new RoomOpenDelegate(1, "91724a93eaf9ba30c17170fbb8c839f6", "bb23775cf93e7e3cf1364478cb4c7bf9") {
       @Override
-      public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `vocabulary1` (`単語番号` INTEGER NOT NULL, `レベル` INTEGER NOT NULL, `単語` TEXT NOT NULL, `名詞1` TEXT, `名詞2` TEXT, `名詞3` TEXT, `名詞4` TEXT, `動詞1` TEXT, `動詞2` TEXT, `動詞3` TEXT, `形容詞1` TEXT, `形容詞2` TEXT, `形容詞3` TEXT, `形容詞4` TEXT, `副詞1` TEXT, `副詞2` TEXT, `前置詞1` TEXT, `前置詞2` TEXT, `接続詞` TEXT, PRIMARY KEY(`単語番号`))");
-        db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fceb041db444954419ea0fa8e19722ff')");
+      public void createAllTables(@NonNull final SQLiteConnection connection) {
+        SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS `vocabulary` (`単語番号` INTEGER NOT NULL, `レベル` TEXT NOT NULL, `単語` TEXT NOT NULL, `名詞1` TEXT, `名詞2` TEXT, `名詞3` TEXT, `名詞4` TEXT, `名詞5` TEXT, `動詞1` TEXT, `動詞2` TEXT, `動詞3` TEXT, `動詞4` TEXT, `動詞5` TEXT, `動詞6` TEXT, `形容詞1` TEXT, `形容詞2` TEXT, `形容詞3` TEXT, `形容詞4` TEXT, `形容詞5` TEXT, `形容詞6` TEXT, `副詞1` TEXT, `副詞2` TEXT, `副詞3` TEXT, `副詞4` TEXT, `前置詞1` TEXT, `前置詞2` TEXT, `接続詞1` TEXT, `接続詞2` TEXT, `熟語1` TEXT, `熟語2` TEXT, PRIMARY KEY(`単語番号`))");
+        SQLite.execSQL(connection, "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
+        SQLite.execSQL(connection, "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '91724a93eaf9ba30c17170fbb8c839f6')");
       }
 
       @Override
-      public void dropAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS `vocabulary1`");
-        final List<? extends RoomDatabase.Callback> _callbacks = mCallbacks;
-        if (_callbacks != null) {
-          for (RoomDatabase.Callback _callback : _callbacks) {
-            _callback.onDestructiveMigration(db);
-          }
-        }
+      public void dropAllTables(@NonNull final SQLiteConnection connection) {
+        SQLite.execSQL(connection, "DROP TABLE IF EXISTS `vocabulary`");
       }
 
       @Override
-      public void onCreate(@NonNull final SupportSQLiteDatabase db) {
-        final List<? extends RoomDatabase.Callback> _callbacks = mCallbacks;
-        if (_callbacks != null) {
-          for (RoomDatabase.Callback _callback : _callbacks) {
-            _callback.onCreate(db);
-          }
-        }
+      public void onCreate(@NonNull final SQLiteConnection connection) {
       }
 
       @Override
-      public void onOpen(@NonNull final SupportSQLiteDatabase db) {
-        mDatabase = db;
-        internalInitInvalidationTracker(db);
-        final List<? extends RoomDatabase.Callback> _callbacks = mCallbacks;
-        if (_callbacks != null) {
-          for (RoomDatabase.Callback _callback : _callbacks) {
-            _callback.onOpen(db);
-          }
-        }
+      public void onOpen(@NonNull final SQLiteConnection connection) {
+        internalInitInvalidationTracker(connection);
       }
 
       @Override
-      public void onPreMigrate(@NonNull final SupportSQLiteDatabase db) {
-        DBUtil.dropFtsSyncTriggers(db);
+      public void onPreMigrate(@NonNull final SQLiteConnection connection) {
+        DBUtil.dropFtsSyncTriggers(connection);
       }
 
       @Override
-      public void onPostMigrate(@NonNull final SupportSQLiteDatabase db) {
+      public void onPostMigrate(@NonNull final SQLiteConnection connection) {
       }
 
       @Override
       @NonNull
-      public RoomOpenHelper.ValidationResult onValidateSchema(
-          @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsVocabulary1 = new HashMap<String, TableInfo.Column>(19);
-        _columnsVocabulary1.put("単語番号", new TableInfo.Column("単語番号", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("レベル", new TableInfo.Column("レベル", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("単語", new TableInfo.Column("単語", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("名詞1", new TableInfo.Column("名詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("名詞2", new TableInfo.Column("名詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("名詞3", new TableInfo.Column("名詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("名詞4", new TableInfo.Column("名詞4", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("動詞1", new TableInfo.Column("動詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("動詞2", new TableInfo.Column("動詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("動詞3", new TableInfo.Column("動詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("形容詞1", new TableInfo.Column("形容詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("形容詞2", new TableInfo.Column("形容詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("形容詞3", new TableInfo.Column("形容詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("形容詞4", new TableInfo.Column("形容詞4", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("副詞1", new TableInfo.Column("副詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("副詞2", new TableInfo.Column("副詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("前置詞1", new TableInfo.Column("前置詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("前置詞2", new TableInfo.Column("前置詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsVocabulary1.put("接続詞", new TableInfo.Column("接続詞", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        final HashSet<TableInfo.ForeignKey> _foreignKeysVocabulary1 = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesVocabulary1 = new HashSet<TableInfo.Index>(0);
-        final TableInfo _infoVocabulary1 = new TableInfo("vocabulary1", _columnsVocabulary1, _foreignKeysVocabulary1, _indicesVocabulary1);
-        final TableInfo _existingVocabulary1 = TableInfo.read(db, "vocabulary1");
-        if (!_infoVocabulary1.equals(_existingVocabulary1)) {
-          return new RoomOpenHelper.ValidationResult(false, "vocabulary1(com.example.vocabularyapp.data.Word).\n"
-                  + " Expected:\n" + _infoVocabulary1 + "\n"
-                  + " Found:\n" + _existingVocabulary1);
+      public RoomOpenDelegate.ValidationResult onValidateSchema(
+          @NonNull final SQLiteConnection connection) {
+        final Map<String, TableInfo.Column> _columnsVocabulary = new HashMap<String, TableInfo.Column>(30);
+        _columnsVocabulary.put("単語番号", new TableInfo.Column("単語番号", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("レベル", new TableInfo.Column("レベル", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("単語", new TableInfo.Column("単語", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("名詞1", new TableInfo.Column("名詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("名詞2", new TableInfo.Column("名詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("名詞3", new TableInfo.Column("名詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("名詞4", new TableInfo.Column("名詞4", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("名詞5", new TableInfo.Column("名詞5", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("動詞1", new TableInfo.Column("動詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("動詞2", new TableInfo.Column("動詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("動詞3", new TableInfo.Column("動詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("動詞4", new TableInfo.Column("動詞4", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("動詞5", new TableInfo.Column("動詞5", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("動詞6", new TableInfo.Column("動詞6", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("形容詞1", new TableInfo.Column("形容詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("形容詞2", new TableInfo.Column("形容詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("形容詞3", new TableInfo.Column("形容詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("形容詞4", new TableInfo.Column("形容詞4", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("形容詞5", new TableInfo.Column("形容詞5", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("形容詞6", new TableInfo.Column("形容詞6", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("副詞1", new TableInfo.Column("副詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("副詞2", new TableInfo.Column("副詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("副詞3", new TableInfo.Column("副詞3", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("副詞4", new TableInfo.Column("副詞4", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("前置詞1", new TableInfo.Column("前置詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("前置詞2", new TableInfo.Column("前置詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("接続詞1", new TableInfo.Column("接続詞1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("接続詞2", new TableInfo.Column("接続詞2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("熟語1", new TableInfo.Column("熟語1", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsVocabulary.put("熟語2", new TableInfo.Column("熟語2", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final Set<TableInfo.ForeignKey> _foreignKeysVocabulary = new HashSet<TableInfo.ForeignKey>(0);
+        final Set<TableInfo.Index> _indicesVocabulary = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoVocabulary = new TableInfo("vocabulary", _columnsVocabulary, _foreignKeysVocabulary, _indicesVocabulary);
+        final TableInfo _existingVocabulary = TableInfo.read(connection, "vocabulary");
+        if (!_infoVocabulary.equals(_existingVocabulary)) {
+          return new RoomOpenDelegate.ValidationResult(false, "vocabulary(com.example.vocabularyapp.data.Word).\n"
+                  + " Expected:\n" + _infoVocabulary + "\n"
+                  + " Found:\n" + _existingVocabulary);
         }
-        return new RoomOpenHelper.ValidationResult(true, null);
+        return new RoomOpenDelegate.ValidationResult(true, null);
       }
-    }, "fceb041db444954419ea0fa8e19722ff", "9ebe056f2bbf609ee8249dfa04fb40d6");
-    final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
-    final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
-    return _helper;
+    };
+    return _openDelegate;
   }
 
   @Override
   @NonNull
   protected InvalidationTracker createInvalidationTracker() {
-    final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
-    final HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "vocabulary1");
+    final Map<String, String> _shadowTablesMap = new HashMap<String, String>(0);
+    final Map<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "vocabulary");
   }
 
   @Override
   public void clearAllTables() {
-    super.assertNotMainThread();
-    final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();
-    try {
-      super.beginTransaction();
-      _db.execSQL("DELETE FROM `vocabulary1`");
-      super.setTransactionSuccessful();
-    } finally {
-      super.endTransaction();
-      _db.query("PRAGMA wal_checkpoint(FULL)").close();
-      if (!_db.inTransaction()) {
-        _db.execSQL("VACUUM");
-      }
-    }
+    super.performClear(false, "vocabulary");
   }
 
   @Override
   @NonNull
   protected Map<Class<?>, List<Class<?>>> getRequiredTypeConverters() {
-    final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
+    final Map<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
     _typeConvertersMap.put(VocabularyDao.class, VocabularyDao_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
@@ -158,7 +134,7 @@ public final class VocabularyDatabase_Impl extends VocabularyDatabase {
   @Override
   @NonNull
   public Set<Class<? extends AutoMigrationSpec>> getRequiredAutoMigrationSpecs() {
-    final HashSet<Class<? extends AutoMigrationSpec>> _autoMigrationSpecsSet = new HashSet<Class<? extends AutoMigrationSpec>>();
+    final Set<Class<? extends AutoMigrationSpec>> _autoMigrationSpecsSet = new HashSet<Class<? extends AutoMigrationSpec>>();
     return _autoMigrationSpecsSet;
   }
 

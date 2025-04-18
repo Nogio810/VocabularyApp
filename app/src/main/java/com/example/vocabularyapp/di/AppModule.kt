@@ -23,8 +23,8 @@ object AppModule{
         return Room.databaseBuilder(
             context,
             VocabularyDatabase::class.java,
-            "kinfure.db"
-        ).createFromAsset("kinfure.db").build()
+            "vocabulary.db"
+        ).createFromAsset("vocabulary.db").build()
     }
 
     @Provides

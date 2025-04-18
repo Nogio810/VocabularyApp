@@ -18,9 +18,9 @@ abstract class VocabularyDatabase : RoomDatabase(){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     VocabularyDatabase::class.java,
-                    "kinfure.db"
+                    "vocabulary.db"
                 )
-                    .createFromAsset("kinfure.db")
+                    .createFromAsset("vocabulary.db")
                     .build()
                 INSTANCE = instance
                 instance
