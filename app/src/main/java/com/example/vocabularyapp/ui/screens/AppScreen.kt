@@ -12,14 +12,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.vocabularyapp.viewmodel.LevelSelectionViewModel
 import com.example.vocabularyapp.viewmodel.QuizViewModel
+import com.example.vocabularyapp.viewmodel.SettingViewModel
 
 @Composable
 fun AppScreen() {
     val navController = rememberNavController()
 
-    val levelSelectionViewModel: LevelSelectionViewModel = hiltViewModel()
+    val settingViewModel: SettingViewModel = hiltViewModel()
     val quizViewModel: QuizViewModel = hiltViewModel()
     Box(
         modifier = Modifier
@@ -30,14 +30,14 @@ fun AppScreen() {
             composable("settings") {
                 SettingScreen(
                     onStartClick = {
-                        quizViewModel.loadQuizzes(levelSelectionViewModel.selectedLevels.value)
+                        quizViewModel.loadQuizzes(settingViewModel.selectedLevels.value, settingViewModel.questionCount.value)
                         navController.navigate("quiz") {
                             popUpTo("quiz") {
                                 inclusive = true
                             }
                         }
                     },
-                    levelSelectionViewModel = levelSelectionViewModel,
+                    settingViewModel = settingViewModel,
                     quizViewModel = quizViewModel
                 )
             }
@@ -60,7 +60,7 @@ fun AppScreen() {
                     correctAnswers = correct,
                     totalQuestions = total,
                     onRetry = {
-                        quizViewModel.loadQuizzes(levelSelectionViewModel.selectedLevels.value)
+                        quizViewModel.loadQuizzes(settingViewModel.selectedLevels.value, settingViewModel.questionCount.value)
                         navController.navigate("quiz") {
                             popUpTo("quiz") {
                                 inclusive = true

@@ -1,7 +1,5 @@
 package com.example.vocabularyapp.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vocabularyapp.model.Quiz
@@ -10,9 +8,9 @@ import com.example.vocabularyapp.repository.VocabularyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlinx.coroutines.flow.asStateFlow
 
 @HiltViewModel
 class QuizViewModel @Inject constructor(
@@ -26,7 +24,7 @@ class QuizViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> get() = _isLoading.asStateFlow()
 
-    fun loadQuizzes(levels: List<String>, count: Int = 10) {
+    fun loadQuizzes(levels: List<String>, count: Int) {
         viewModelScope.launch {
             _isLoading.value = true
             val quizzes = List(count) { quizGenerator.generateQuiz(levels) }

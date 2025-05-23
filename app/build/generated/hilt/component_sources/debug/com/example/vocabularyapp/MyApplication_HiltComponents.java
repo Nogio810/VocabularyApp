@@ -1,8 +1,8 @@
 package com.example.vocabularyapp;
 
 import com.example.vocabularyapp.di.AppModule;
-import com.example.vocabularyapp.viewmodel.LevelSelectionViewModel_HiltModules;
 import com.example.vocabularyapp.viewmodel.QuizViewModel_HiltModules;
+import com.example.vocabularyapp.viewmodel.SettingViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -156,10 +156,10 @@ public final class MyApplication_HiltComponents {
       modules = {
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
           HiltWrapper_SavedStateHandleModule.class,
-          LevelSelectionViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class,
-          QuizViewModel_HiltModules.KeyModule.class
+          QuizViewModel_HiltModules.KeyModule.class,
+          SettingViewModel_HiltModules.KeyModule.class
       }
   )
   @ActivityRetainedScoped
@@ -196,8 +196,8 @@ public final class MyApplication_HiltComponents {
   @Subcomponent(
       modules = {
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
-          LevelSelectionViewModel_HiltModules.BindsModule.class,
-          QuizViewModel_HiltModules.BindsModule.class
+          QuizViewModel_HiltModules.BindsModule.class,
+          SettingViewModel_HiltModules.BindsModule.class
       }
   )
   @ViewModelScoped
