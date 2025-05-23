@@ -4,7 +4,7 @@
             "outputFile": "com.example.vocabularyapp.test.app-mergeDebugAndroidTestResources-34:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.10.2\\transforms\\e07dadc15681da6293f1c7d29e68a659\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.11.1\\transforms\\afbe09004f3a5b5f73a21eafc7a38a57\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
                     "from": {
                         "startLines": "4,13",
                         "startColumns": "0,0",

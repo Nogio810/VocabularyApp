@@ -4,7 +4,7 @@
             "outputFile": "com.example.vocabularyapp.test.app-mergeDebugAndroidTestResources-34:/values-sv/values-sv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.10.2\\transforms\\af877f433e658cc0c8e2f18236dc32b2\\transformed\\core-1.13.1\\res\\values-sv\\values-sv.xml",
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.11.1\\transforms\\c09a206bd2adc40911c6a8799bbdceb6\\transformed\\core-1.13.1\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.10.2\\transforms\\41bb887ee2e272a7c8c782a2546ed572\\transformed\\ui-release\\res\\values-sv\\values-sv.xml",
+                    "source": "C:\\Users\\takuj\\.gradle\\caches\\8.11.1\\transforms\\c90bbf223a539511fd9bc894be2ea5cc\\transformed\\ui-release\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
