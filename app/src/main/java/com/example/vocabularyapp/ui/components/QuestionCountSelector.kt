@@ -1,6 +1,7 @@
 package com.example.vocabularyapp.ui.components
 
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,7 +12,7 @@ fun QuestionCountSelector(
     questionCount: Int,
     onCountChange: (Int) -> Unit
 ) {
-    Text("問題数を選択してください", style = MaterialTheme.typography.titleMedium)
+    Text("問題数を選択してください", color = colorScheme.onSurface, style = MaterialTheme.typography.titleMedium)
 
     Slider(
         value = (questionCount / 10).toFloat(),
@@ -23,5 +24,5 @@ fun QuestionCountSelector(
         steps = 49
     )
 
-    Text("問題数: $questionCount")
+    Text("問題数: $questionCount", color = colorScheme.onSurface)
 }

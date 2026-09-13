@@ -1,40 +1,139 @@
 package com.example.vocabularyapp.model
 
-import com.example.vocabularyapp.data.Word
+import com.example.vocabularyapp.data.WordEntity
 import com.example.vocabularyapp.repository.VocabularyRepository
 
-class QuizGenerator(private val repository: VocabularyRepository) {
+class QuizGenerator(
+    private val repository: VocabularyRepository
+) {
 
-    suspend fun generateQuiz(levels: List<String>?): Quiz {
-        val correctWord = repository.getQuizWord(levels)
-        val choices = generateChoices(correctWord, levels)
-        return Quiz(question = correctWord.word, choices = choices)
-    }
+    suspend fun generateQuiz(
+        word: WordEntity,
+        isEnglishToJapanese: Boolean,
+        availableWords: List<WordEntity>
+    ): Quiz {
 
-    private suspend fun generateChoices(correctWord: Word, levels: List<String>?): List<Choice> {
-        val otherTranslations = repository.getOtherChoices(levels, correctWord.id)
-        val choiceTranslations = buildList {
-            otherTranslations.mapTo(this) {
+        val correctMeanings =
+            repository.getCorrectMeanings(word.wordId)
+
+        val correctMeaningText =
+            correctMeanings.joinToString(" / ") {
+                it.meaning
+            }
+
+        val choices = mutableListOf<Choice>()
+
+        // ========================================
+        // 英語 → 日本語
+        // ========================================
+        if (isEnglishToJapanese) {
+
+            val usedChoiceTexts = mutableSetOf<String>()
+
+            usedChoiceTexts.add(correctMeaningText)
+
+            choices.add(
                 Choice(
-                    questionText = arrangeChoices(it),
-                    isCorrect = false
+                    questionText = correctMeaningText,
+                    isCorrect = true
+                )
+            )
+
+            while (choices.size < 4) {
+
+                val randomWord = availableWords.random()
+
+                // 正解と同じ単語ならやり直し
+                if (randomWord.wordId == word.wordId) {
+                    continue
+                }
+
+                val dummyMeanings =
+                    repository.getCorrectMeanings(
+                        randomWord.wordId
+                    )
+
+                val dummyText =
+                    dummyMeanings.joinToString(" / ") {
+                        it.meaning
+                    }
+
+                // 意味が存在し、同じ選択肢でなければ採用
+                if (
+                    dummyText.isNotEmpty() &&
+                    usedChoiceTexts.add(dummyText)
+                ) {
+                    choices.add(
+                        Choice(
+                            questionText = dummyText,
+                            isCorrect = false
+                        )
+                    )
+                }
+            }
+
+            return Quiz(
+                wordId = word.wordId,
+                question = word.word,
+                choices = choices.shuffled()
+            )
+        }
+
+        // ========================================
+        // 日本語 → 英語
+        // ========================================
+
+        choices.add(
+            Choice(
+                questionText = word.word,
+                isCorrect = true
+            )
+        )
+
+        // 正解単語に紐づく意味IDを取得
+        val correctMeaningIds =
+            correctMeanings.map {
+                it.meaningId
+            }
+
+        // SQL側で意味が重複しないダミー単語を取得
+        val safeDummyWords =
+            repository.getSafeDummyWords(
+                levels = availableWords
+                    .map { it.level }
+                    .distinct(),
+
+                excludeWordId = word.wordId,
+
+                correctMeaningIds = correctMeaningIds,
+
+                limit = 3
+            )
+
+        // 同じ英単語が重複しないように管理
+        val usedChoiceTexts =
+            mutableSetOf(word.word)
+
+        for (dummyWord in safeDummyWords) {
+
+            if (usedChoiceTexts.add(dummyWord.word)) {
+                choices.add(
+                    Choice(
+                        questionText = dummyWord.word,
+                        isCorrect = false
+                    )
                 )
             }
-            add(Choice(questionText = arrangeChoices(correctWord), isCorrect = true))
-        }
-        return choiceTranslations.shuffled()
-    }
 
-    private fun arrangeChoices(word: Word): String {
-        val translations = listOfNotNull(
-            word.noun1, word.noun2, word.noun3, word.noun4, word.noun5,
-            word.verb1, word.verb2, word.verb3, word.verb4, word.verb5, word.verb6,
-            word.adj1, word.adj2, word.adj3, word.adj4, word.adj5, word.adj6,
-            word.adv1, word.adv2, word.adv3, word.adv4,
-            word.prep1, word.prep2,
-            word.conj1, word.conj2,
-            word.idiom1, word.idiom2
+            if (choices.size == 4) {
+                break
+            }
+        }
+
+        return Quiz(
+            wordId = word.wordId,
+            question = correctMeaningText,
+            choices = choices.shuffled()
         )
-        return translations.joinToString(separator = ", ")
     }
 }

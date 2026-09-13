@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -21,19 +22,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.vocabularyapp.ui.components.LevelCheckbox
 import com.example.vocabularyapp.ui.components.QuestionCountSelector
+import com.example.vocabularyapp.ui.components.TimeLimitSelector
 import com.example.vocabularyapp.viewmodel.QuizViewModel
 import com.example.vocabularyapp.viewmodel.SettingViewModel
+import com.example.vocabularyapp.ui.components.ModeSelector
 
 @Composable
 fun SettingScreen(
     onStartClick: () -> Unit,
     settingViewModel: SettingViewModel,
-    quizViewModel: QuizViewModel
+    isQuizLoading: Boolean,
 ) {
     val selectedLevels by settingViewModel.selectedLevels.collectAsState()
     val questionCount by settingViewModel.questionCount.collectAsState()
-
-    val isLoading by quizViewModel.isLoading.collectAsState()
+    val timeLimit by settingViewModel.timeLimit.collectAsState()
+    val isEnglishToJapanese by settingViewModel.isEnglishToJapanese.collectAsState()
 
     Column(
         modifier = Modifier
@@ -45,7 +48,14 @@ fun SettingScreen(
             )
             .padding(16.dp)
     ) {
-        Text("レベルを選択してください", style = MaterialTheme.typography.titleMedium)
+        ModeSelector(
+            isEnglishToJapanese = isEnglishToJapanese,
+            onModeChange = { settingViewModel.setMode(it) }
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Text("レベルを選択してください", color = colorScheme.onSurface, style = MaterialTheme.typography.titleMedium)
 
         listOf("600", "730", "860", "990").forEach { level ->
             LevelCheckbox(
@@ -64,12 +74,20 @@ fun SettingScreen(
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        // 👇 追加：制限時間のスライダーを配置
+        TimeLimitSelector(
+            timeLimit = timeLimit,
+            onTimeChange = { settingViewModel.setTimeLimit(it) }
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
         Button(
             onClick = onStartClick,
-            enabled = selectedLevels.isNotEmpty() && !isLoading,
+            enabled = selectedLevels.isNotEmpty() && !isQuizLoading, // 👈 ここで使用
             modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {
-            Text("START")
+            Text(if (isQuizLoading) "準備中..." else "スタート")
         }
     }
 }

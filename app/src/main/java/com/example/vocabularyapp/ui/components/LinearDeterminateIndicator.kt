@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 fun LinearDeterminateIndicator(
     modifier: Modifier,
     isAnimating: Boolean,
+    timeLimitSeconds: Int,
     onAnimationEnd: () -> Unit
 ) {
     val progress = remember { Animatable(1f) }
@@ -24,7 +25,7 @@ fun LinearDeterminateIndicator(
             progress.animateTo(
                 0f,
                 animationSpec = tween(
-                    durationMillis = 10000,
+                    durationMillis = timeLimitSeconds * 1000,
                     easing = LinearEasing
                     )
             )

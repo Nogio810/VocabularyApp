@@ -2,177 +2,164 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "91724a93eaf9ba30c17170fbb8c839f6",
+    "identityHash": "586a8333fe6d41d379a0b3f065894361",
     "entities": [
       {
-        "tableName": "vocabulary",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`単語番号` INTEGER NOT NULL, `レベル` TEXT NOT NULL, `単語` TEXT NOT NULL, `名詞1` TEXT, `名詞2` TEXT, `名詞3` TEXT, `名詞4` TEXT, `名詞5` TEXT, `動詞1` TEXT, `動詞2` TEXT, `動詞3` TEXT, `動詞4` TEXT, `動詞5` TEXT, `動詞6` TEXT, `形容詞1` TEXT, `形容詞2` TEXT, `形容詞3` TEXT, `形容詞4` TEXT, `形容詞5` TEXT, `形容詞6` TEXT, `副詞1` TEXT, `副詞2` TEXT, `副詞3` TEXT, `副詞4` TEXT, `前置詞1` TEXT, `前置詞2` TEXT, `接続詞1` TEXT, `接続詞2` TEXT, `熟語1` TEXT, `熟語2` TEXT, PRIMARY KEY(`単語番号`))",
+        "tableName": "words",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`word_id` INTEGER NOT NULL, `level` TEXT NOT NULL, `word` TEXT NOT NULL, PRIMARY KEY(`word_id`))",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "単語番号",
+            "fieldPath": "wordId",
+            "columnName": "word_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "level",
-            "columnName": "レベル",
+            "columnName": "level",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "word",
-            "columnName": "単語",
+            "columnName": "word",
             "affinity": "TEXT",
             "notNull": true
-          },
-          {
-            "fieldPath": "noun1",
-            "columnName": "名詞1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "noun2",
-            "columnName": "名詞2",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "noun3",
-            "columnName": "名詞3",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "noun4",
-            "columnName": "名詞4",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "noun5",
-            "columnName": "名詞5",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "verb1",
-            "columnName": "動詞1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "verb2",
-            "columnName": "動詞2",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "verb3",
-            "columnName": "動詞3",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "verb4",
-            "columnName": "動詞4",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "verb5",
-            "columnName": "動詞5",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "verb6",
-            "columnName": "動詞6",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adj1",
-            "columnName": "形容詞1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adj2",
-            "columnName": "形容詞2",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adj3",
-            "columnName": "形容詞3",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adj4",
-            "columnName": "形容詞4",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adj5",
-            "columnName": "形容詞5",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adj6",
-            "columnName": "形容詞6",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adv1",
-            "columnName": "副詞1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adv2",
-            "columnName": "副詞2",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adv3",
-            "columnName": "副詞3",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "adv4",
-            "columnName": "副詞4",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "prep1",
-            "columnName": "前置詞1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "prep2",
-            "columnName": "前置詞2",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "conj1",
-            "columnName": "接続詞1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "conj2",
-            "columnName": "接続詞2",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "idiom1",
-            "columnName": "熟語1",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "idiom2",
-            "columnName": "熟語2",
-            "affinity": "TEXT"
           }
         ],
         "primaryKey": {
           "autoGenerate": false,
           "columnNames": [
-            "単語番号"
+            "word_id"
           ]
         }
+      },
+      {
+        "tableName": "meanings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`meaning_id` INTEGER NOT NULL, `meaning` TEXT NOT NULL, `category` TEXT NOT NULL, PRIMARY KEY(`meaning_id`))",
+        "fields": [
+          {
+            "fieldPath": "meaningId",
+            "columnName": "meaning_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "meaning",
+            "columnName": "meaning",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "meaning_id"
+          ]
+        }
+      },
+      {
+        "tableName": "word_meanings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`word_id` INTEGER NOT NULL, `meaning_id` INTEGER NOT NULL, PRIMARY KEY(`word_id`, `meaning_id`), FOREIGN KEY(`word_id`) REFERENCES `words`(`word_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`meaning_id`) REFERENCES `meanings`(`meaning_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "wordId",
+            "columnName": "word_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "meaningId",
+            "columnName": "meaning_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "word_id",
+            "meaning_id"
+          ]
+        },
+        "foreignKeys": [
+          {
+            "table": "words",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "word_id"
+            ],
+            "referencedColumns": [
+              "word_id"
+            ]
+          },
+          {
+            "table": "meanings",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "meaning_id"
+            ],
+            "referencedColumns": [
+              "meaning_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "word_audio",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `type` TEXT NOT NULL, `path` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`id`) REFERENCES `words`(`word_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "path",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "foreignKeys": [
+          {
+            "table": "words",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "id"
+            ],
+            "referencedColumns": [
+              "word_id"
+            ]
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '91724a93eaf9ba30c17170fbb8c839f6')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '586a8333fe6d41d379a0b3f065894361')"
     ]
   }
 }

@@ -14,30 +14,38 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule{
+object AppModule {
+
     @Provides
     @Singleton
     fun provideVocabularyDatabase(
         @ApplicationContext context: Context
     ): VocabularyDatabase {
+
         return Room.databaseBuilder(
             context,
             VocabularyDatabase::class.java,
             "vocabulary.db"
-        ).createFromAsset("vocabulary.db").build()
+        )
+            .createFromAsset("vocabulary.db")
+            .build()
     }
+
 
     @Provides
     @Singleton
-    fun provideVocabularyDao(database: VocabularyDatabase): VocabularyDao {
+    fun provideVocabularyDao(
+        database: VocabularyDatabase
+    ): VocabularyDao {
         return database.vocabularyDao()
     }
+
 
     @Provides
     @Singleton
     fun provideVocabularyRepository(
         dao: VocabularyDao
-    ): VocabularyRepository{
+    ): VocabularyRepository {
         return VocabularyRepository(dao)
     }
 }

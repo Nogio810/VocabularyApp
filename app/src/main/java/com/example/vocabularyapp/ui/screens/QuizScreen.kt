@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.compose.VocabularyAppTheme
+import com.example.vocabularyapp.model.AnswerResult
 import com.example.vocabularyapp.ui.components.CloseButton
 import com.example.vocabularyapp.ui.components.CorrectQuizOptionButton
 import com.example.vocabularyapp.ui.components.ErrorQuizOptionButton
@@ -42,6 +43,13 @@ import com.example.vocabularyapp.ui.components.RelativePosition
 import com.example.vocabularyapp.ui.components.SkipButton
 import com.example.vocabularyapp.viewmodel.QuizViewModel
 import kotlinx.coroutines.delay
+import androidx.compose.foundation.clickable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import android.media.MediaPlayer
+import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun QuizScreen(
@@ -49,6 +57,8 @@ fun QuizScreen(
     navController: NavController
 ) {
     val quizList by viewModel.quizList.collectAsState()
+    val timeLimit by viewModel.timeLimit.collectAsState()
+    val isEnglishToJapanese by viewModel.isEnglishToJapanese.collectAsState()
     var currentQuizIndex by remember { mutableIntStateOf(0) }
     var showResult by remember { mutableStateOf(false) }
     var selectedChoiceIndex by remember { mutableIntStateOf(-1) }
@@ -75,15 +85,54 @@ fun QuizScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     val currentQuiz = quizList[currentQuizIndex]
+
+                    val context = LocalContext.current
+
+                    // ファイルの有無をチェック
+                    val audioResId = remember(currentQuiz.wordId) {
+                        context.resources.getIdentifier(
+                            "word_${currentQuiz.wordId}",
+                            "raw",
+                            context.packageName
+                        )
+                    }
+
+                    val hasAudio = audioResId != 0
+
+                    val playSound = {
+                        if (hasAudio) {
+                            MediaPlayer.create(context, audioResId)?.apply {
+                                setOnCompletionListener { release() }
+                                start()
+                            }
+                        }
+                    }
+
+                    // 🔊 変更：自動再生は「英⇒和」の時だけ！
+                    LaunchedEffect(currentQuiz.wordId) {
+                        if (isEnglishToJapanese) {
+                            playSound()
+                        }
+                    }
+
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
                     ) {
-                        CloseButton()
+                        CloseButton(
+                            onClick = {
+                                // 設定画面に戻りつつ、現在のクイズ画面の履歴（バックスタック）を消去する
+                                // ※もし Routes.SETTINGS という定数を作っていたら、"settings" の代わりにそれを使ってください
+                                navController.navigate("settings") {
+                                    popUpTo("settings") { inclusive = true }
+                                }
+                            }
+                        )
                         LinearDeterminateIndicator(
                             modifier = Modifier.weight(1f),
                             isAnimating = isAnimating,
+                            timeLimitSeconds = timeLimit,
                             onAnimationEnd = {
                                 if (!showResult) {
                                     showResult = true
@@ -103,7 +152,9 @@ fun QuizScreen(
                         size = quizList.size
                     )
                     QuizCard(
-                        englishWord = currentQuiz.question
+                        englishWord = currentQuiz.question,
+                        hasAudio = hasAudio && isEnglishToJapanese,
+                        onClick = { playSound() }
                     )
                     Spacer(
                         modifier = Modifier
@@ -116,6 +167,18 @@ fun QuizScreen(
                         contentAlignment = Alignment.CenterEnd,
                     ) {
                         SkipButton {
+                            val correctAnswerText = currentQuiz.choices.find { it.isCorrect }?.questionText ?: ""
+
+                            // 👇 2. 履歴に「スキップしたよ」として保存
+                            viewModel.addAnswerResult(
+                                AnswerResult(
+                                    word = currentQuiz.question,
+                                    correctMeaning = correctAnswerText,
+                                    userAnswer = "スキップ", // 何でもOKですが、一応文字を入れておく
+                                    isCorrect = false,
+                                    isSkipped = true // 👈 ここを true にする！
+                                )
+                            )
                             isSkipped = true
                             showResult = true
                             isAnimating = false
@@ -141,6 +204,18 @@ fun QuizScreen(
                                     selectedChoiceIndex = index
                                     showResult = true
                                     isAnimating = false
+                                    // 1. その問題の「正解のテキスト」を探し出す
+                                    val correctAnswerText = currentQuiz.choices.find { it.isCorrect }?.questionText ?: ""
+
+                                    // 2. ViewModelに結果を送信して保存する！
+                                    viewModel.addAnswerResult(
+                                        AnswerResult(
+                                            word = currentQuiz.question,       // 英単語
+                                            correctMeaning = correctAnswerText,// 正解の訳
+                                            userAnswer = choice.questionText,  // 自分がタップした訳
+                                            isCorrect = choice.isCorrect       // 合ってたかどうか
+                                        )
+                                    )
                                     if (choice.isCorrect) {
                                         correctAnswers += 1
                                     }
@@ -150,7 +225,7 @@ fun QuizScreen(
                     }
                     LaunchedEffect(showResult) {
                         if (showResult) {
-                            delay(2000)
+                            delay(1000)
                             isSkipped = false
                             showResult = false
                             isAnimating = true
